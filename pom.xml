@@ -7,13 +7,28 @@
   <packaging>pom</packaging>
 
   <name>local-grid-parent</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://github.com/sbabcoc/local-grid-parent</url>
 
+  <licenses>
+    <license>
+      <name>The Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  
+  <developers>
+    <developer>
+      <name>Scott Babcock</name>
+      <email>scoba@hotmail.com</email>
+      <organization>Nordstrom</organization>
+      <organizationUrl>https://shop.nordstrom.com</organizationUrl>
+    </developer>
+  </developers>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>7</maven.compiler.release>
-    <foundation.version>22.1.5-s2</foundation.version>
+    <foundation.version>22.1.6-s2</foundation.version>
     <jcommander.version>1.48</jcommander.version> <!-- java7 -->
     <commons-lang3.version>3.8.1</commons-lang3.version> <!-- java7 -->
     <commons-text.version>1.3</commons-text.version> <!-- java7 -->

@@ -7,28 +7,11 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
+  <name>Local Grid Hub</name>
   <artifactId>local-grid-hub</artifactId>
   <packaging>jar</packaging>
   
-  <name>Local Grid Hub</name>
   <description></description>
-  <url>https://github.com/sbabcoc/local-grid-parent</url>
-  
-  <licenses>
-    <license>
-      <name>The Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-    </license>
-  </licenses>
-  
-  <developers>
-    <developer>
-      <name>Scott Babcock</name>
-      <email>scoba@hotmail.com</email>
-      <organization>Nordstrom</organization>
-      <organizationUrl>https://shop.nordstrom.com</organizationUrl>
-    </developer>
-  </developers>
   
   <dependencies>
     <dependency>
