@@ -28,7 +28,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>7</maven.compiler.release>
-    <foundation.version>22.1.6-s2</foundation.version>
+    <foundation.version>22.2.1-s2</foundation.version>
     <jcommander.version>1.48</jcommander.version> <!-- java7 -->
     <commons-lang3.version>3.8.1</commons-lang3.version> <!-- java7 -->
     <commons-text.version>1.3</commons-text.version> <!-- java7 -->

@@ -12,11 +12,17 @@ import com.nordstrom.automation.selenium.plugins.PhantomJsPlugin;
 
 public class LocalGridOptions {
 
-    @Parameter(names = "-plugins", description = "Semicolon-delimited list of fully-qualified node plugin classes")
+    @Parameter(names = "-plugins", description = "Path-delimited list of fully-qualified node plugin classes")
     private String plugins = PhantomJsPlugin.class.getName();
 
     @Parameter(names = "-port", description = "Port for local hub server")
     private Integer port;
+
+    @Parameter(names = "-hubServlets", description = "Comma-delimited list of fully-qualified servlet classes to install on the hub server")
+    private String hubServlets;
+
+    @Parameter(names = "-nodeServlets", description = "Comma-delimited list of fully-qualified servlet classes to install on the node servers")
+    private String nodeServlets;
 
     @Parameter(names = "-shutdown", description = "Shutdown active local Grid")
     private boolean shutdown = false;
@@ -72,6 +78,12 @@ public class LocalGridOptions {
         
         if (port != null) {
             System.setProperty(SeleniumSettings.HUB_PORT.key(), port.toString());
+        }
+        if (hubServlets != null) {
+            System.setProperty(SeleniumSettings.HUB_SERVLETS.key(), hubServlets);
+        }
+        if (nodeServlets != null) {
+            System.setProperty(SeleniumSettings.NODE_SERVLETS.key(), nodeServlets);
         }
         if (workingDir != null) {
             workingFolder = workingDir.toString();
