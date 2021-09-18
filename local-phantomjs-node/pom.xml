@@ -21,12 +21,12 @@
       <groupId>com.nordstrom.tools</groupId>
       <artifactId>junit-foundation</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.nordstrom.ui-tools</groupId>
-      <artifactId>local-grid-hub</artifactId>
-      <version>${project.version}</version>
-      <scope>test</scope>
-    </dependency>
+<!--     <dependency> -->
+<!--       <groupId>com.nordstrom.ui-tools</groupId> -->
+<!--       <artifactId>local-grid-hub</artifactId> -->
+<!--       <version>${project.version}</version> -->
+<!--       <scope>test</scope> -->
+<!--     </dependency> -->
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>phantomjsdriver</artifactId>
