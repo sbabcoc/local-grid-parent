@@ -16,3 +16,4 @@ test-output
 *.log
 *.txt
 .gitignore
+*.json

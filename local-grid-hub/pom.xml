@@ -57,6 +57,11 @@
               <addClasspath>true</addClasspath>
               <mainClass>com.nordstrom.utility.Main</mainClass>
             </manifest>
+            <manifestEntries>
+              <Premain-Class>com.nordstrom.tools.GuavaAgent</Premain-Class>
+              <Can-Redefine-Classes>false</Can-Redefine-Classes>
+              <Can-Retransform-Classes>true</Can-Retransform-Classes>
+            </manifestEntries>
           </archive>
         </configuration>
       </plugin>
@@ -165,4 +170,12 @@
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>selenium2</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+  </profiles>
 </project>
