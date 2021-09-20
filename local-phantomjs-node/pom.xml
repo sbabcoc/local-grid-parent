@@ -21,29 +21,24 @@
     <dependency>
       <groupId>com.nordstrom.tools</groupId>
       <artifactId>junit-foundation</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.nordstrom.ui-tools</groupId>
       <artifactId>local-grid-hub</artifactId>
       <version>${project.version}</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>phantomjsdriver</artifactId>
       <version>${phantomjsdriver.version}</version>
-      <scope>test</scope>
       <exclusions>
         <exclusion>
           <groupId>org.seleniumhq.selenium</groupId>
-          <artifactId>selenium-java</artifactId>
+          <artifactId>selenium-remote-driver</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-support</artifactId>
-      <version>${selenium.version}</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 
