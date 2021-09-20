@@ -24,6 +24,7 @@ import com.nordstrom.automation.selenium.model.Page;
 import com.nordstrom.automation.selenium.plugins.PhantomJsPlugin;
 import com.nordstrom.common.jar.JarUtils;
 import com.nordstrom.utility.LocalGridOptions;
+import com.nordstrom.utility.Main;
 
 @InitialPage(ExamplePage.class)
 public class GridTest extends JUnitBase {
@@ -53,7 +54,7 @@ public class GridTest extends JUnitBase {
         // specify Java class path
         argsList.add("-cp");
         argsList.add(classPath);        
-        argsList.add("com.nordstrom.utility.Main");
+        argsList.add(Main.class.getName());
         argsList.add("-port");
         argsList.add(Integer.toString(PortProber.findFreePort()));
         argsList.add("-plugins");
