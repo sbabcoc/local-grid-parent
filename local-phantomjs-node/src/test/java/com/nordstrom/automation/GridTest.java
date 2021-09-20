@@ -40,23 +40,19 @@ public class GridTest extends JUnitBase {
         
         List<String> argsList = new ArrayList<>();
         
-        // get assembled classpath string
-        String classPath = JarUtils.getClasspath(dependencyContexts);
-        // split on Java agent list separator
-        String[] pathBits = classPath.split("\n");
-        // if agent(s) specified
-        if (pathBits.length > 1) {
-            // extract classpath
-            classPath = pathBits[0];
-            // for each specified agent...
-            for (String agentPath : pathBits[1].split("\t")) {
-                // ... specify a 'javaagent' argument
-                argsList.add(0, "-javaagent:" + agentPath);
-            }
+        // get dependency context paths
+        List<String> contextPaths = JarUtils.getContextPaths(dependencyContexts);
+        // extract classpath specification
+        String classPath = contextPaths.remove(0);
+        // for each specified Java agent...
+        for (String agentSpec : contextPaths) {
+            // ... specify a 'javaagent' argument
+            argsList.add(agentSpec);
         }
         
+        // specify Java class path
         argsList.add("-cp");
-        argsList.add(classPath);
+        argsList.add(classPath);        
         argsList.add("com.nordstrom.utility.Main");
         argsList.add("-port");
         argsList.add(Integer.toString(PortProber.findFreePort()));
