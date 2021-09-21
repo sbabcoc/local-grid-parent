@@ -30,6 +30,13 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>com.nordstrom.ui-tools</groupId>
+      <artifactId>local-grid-hub</artifactId>
+      <version>${project.version}</version>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>phantomjsdriver</artifactId>
       <version>${phantomjsdriver.version}</version>
