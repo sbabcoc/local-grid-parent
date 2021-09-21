@@ -1,5 +1,7 @@
 package com.nordstrom.automation;
 
+import java.util.Objects;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.os.CommandLine;
@@ -19,13 +21,10 @@ public class EdgeGridTest extends AbstractGridTest {
     @BeforeClass
     @SuppressWarnings("deprecation")
     public static void launch() {
-        String driverPath = CommandLine.find("msedgedriver");
-        if (driverPath != null) {
-            System.setProperty("webdriver.edge.driver", driverPath);
-            seleniumGrid = GridLauncher.start(new EdgePlugin());
-        } else {
-            throw new IllegalStateException("Unable to locate 'msedgedriver'");
-        }
+        String driverPath =
+                Objects.requireNonNull(CommandLine.find("msedgedriver"), "Executable 'msedgedriver' not found");
+        System.setProperty("webdriver.edge.driver", driverPath);
+        seleniumGrid = GridLauncher.start(new EdgePlugin());
     }
     
     public static SeleniumGrid getSeleniumGrid() {
