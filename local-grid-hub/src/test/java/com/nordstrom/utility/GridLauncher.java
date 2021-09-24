@@ -15,11 +15,32 @@ import com.nordstrom.automation.selenium.SeleniumConfig;
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
 import com.nordstrom.common.jar.JarUtils;
 
+/**
+ * This class implements a launcher for a local <b>Selenium Grid</b> instance.
+ */
 public class GridLauncher {
     
-    public static SeleniumGrid start(DriverPlugin driverPlugin) {
+    private GridLauncher() {
+        throw new AssertionError("GridLauncher is a static constants class that cannot be instantiated");
+    }
+
+    /**
+     * Launch a local <b>Selenium Grid</b> instance that provides sessions of the indicate browser.
+     * <p>
+     * <b>NOTE</b>: The new grid instance is injected into the current <b>Selenium Foundation</b> configuration. <br>
+     * The following {@link SeleniumSettings properties} are directly updated by this method:
+     * <ul>
+     *     <li>{@link SeleniumSettings#HUB_HOST HUB_HOST}: URL for the Selenium Grid endpoint</li>
+     *     <li>{@link SeleniumSettings#HUB_PORT HUB_PORT}: port of the local Selenium Grid hub</li>
+     *     <li>{@link SeleniumSettings#BROWSER_NAME BROWSER_NAME}: browser name for new sessions</li>
+     * </ul>
+     * 
+     * @param driverPlugin {@link DriverPlugin} that provides grid node configuration
+     * @return {@link SeleniumGrid} object that represents the new grid instance
+     */
+    public static SeleniumGrid launch(DriverPlugin driverPlugin) {
         String[] dependencyContexts =
-                ObjectArrays.concat(LocalGridOptions.class.getName(), driverPlugin.getDependencyContexts());
+                ObjectArrays.concat(Main.class.getName(), driverPlugin.getDependencyContexts());
         
         List<String> argsList = new ArrayList<>();
         

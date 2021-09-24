@@ -28,7 +28,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>7</maven.compiler.release>
-    <selenium-foundation.version>22.3.1-s2-SNAPSHOT</selenium-foundation.version>
+    <selenium-foundation.version>22.4.1-s2</selenium-foundation.version>
     <junit-foundation.version>15.3.4</junit-foundation.version>
     <jcommander.version>1.48</jcommander.version> <!-- java7 -->
     <commons-lang3.version>3.8.1</commons-lang3.version> <!-- java7 -->
@@ -148,6 +148,30 @@
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
           <version>${release-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <versionRange>[1.0.0,)</versionRange>
+                    <goals>
+                      <goal>properties</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <execute />
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>

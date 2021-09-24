@@ -1,14 +1,14 @@
 package com.nordstrom.automation;
 
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
-import com.nordstrom.automation.selenium.plugins.PhantomJsPlugin;
+import com.nordstrom.automation.selenium.plugins.HtmlUnitPlugin;
 import com.nordstrom.utility.AbstractGridTest;
 import com.nordstrom.utility.GridLauncher;
 
-public class PhantomJsGridTest extends AbstractGridTest {
+public class HtmlUnitGridTest extends AbstractGridTest {
     
     public static SeleniumGrid launchGrid() {
-        return GridLauncher.launch(new PhantomJsPlugin());
+        return GridLauncher.launch(new HtmlUnitPlugin());
     }
 
 }
