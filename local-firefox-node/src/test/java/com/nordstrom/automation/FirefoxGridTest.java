@@ -1,24 +1,47 @@
 package com.nordstrom.automation;
 
+import java.io.File;
 import java.util.Objects;
 
 import org.junit.Ignore;
-import org.openqa.selenium.os.CommandLine;
+import org.junit.Test;
 
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
 import com.nordstrom.automation.selenium.plugins.FirefoxPlugin;
+import com.nordstrom.automation.selenium.utility.BinaryFinder;
 import com.nordstrom.utility.AbstractGridTest;
 import com.nordstrom.utility.GridLauncher;
 
-@Ignore
 public class FirefoxGridTest extends AbstractGridTest {
     
-    @SuppressWarnings("deprecation")
+    private static final String PATH_PROPERTY = "webdriver.gecko.driver";
+    
+    @Test
+    @Ignore
+    @Override
+    public void testShadowRootByLocator() { }
+
+    @Test
+    @Ignore
+    @Override
+    public void testShadowRootByElement() { }
+    
+    @Test
+    @Ignore
+    @Override
+    public void testShadowRootList() { }
+    
+    @Test
+    @Ignore
+    @Override
+    public void testShadowRootMap() { }
+    
     public static SeleniumGrid launchGrid() {
-        String driverPath =
-                Objects.requireNonNull(CommandLine.find("geckodriver"), "Executable 'geckodriver' not found");
-        System.setProperty("webdriver.gecko.driver", driverPath);
+        File driverPath = Objects.requireNonNull(
+                BinaryFinder.findBinary("geckodriver", PATH_PROPERTY, null, null),
+                "Executable 'geckodriver' not found");
+        System.setProperty(PATH_PROPERTY, driverPath.getAbsolutePath());
         return GridLauncher.launch(new FirefoxPlugin());
     }
-
+    
 }

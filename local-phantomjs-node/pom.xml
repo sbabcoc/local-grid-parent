@@ -13,8 +13,7 @@
   <name>Local PhantomJS Node</name>
   
   <properties>
-    <selenium.version>2.53.1</selenium.version>
-    <phantomjsdriver.version>1.3.0</phantomjsdriver.version>
+    <phantomjsdriver.version>1.4.4</phantomjsdriver.version>
   </properties>
 
   <dependencies>

@@ -21,7 +21,7 @@ public class Main {
         try {
             parser.parse(args);
         } catch (ParameterException e) {
-            JCommander.getConsole().println(e.getMessage());
+            parser.getConsole().println(e.getMessage());
             opts.setHelp();
         }
 
@@ -51,7 +51,7 @@ public class Main {
                 SeleniumGrid grid = SeleniumGrid.create(config, hubUrl);
                 hubUrl = grid.getHubServer().getUrl();
             }
-            JCommander.getConsole().println(hubUrl.toString());
+            parser.getConsole().println(hubUrl.toString());
         }
     }
 }

@@ -4,13 +4,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assume.assumeNoException;
 import static com.nordstrom.automation.selenium.examples.ExamplePage.*;
 import static org.junit.Assert.assertArrayEquals;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.reflect.MethodUtils;
 import org.junit.Before;
 import org.junit.Test;
+
 import com.nordstrom.automation.selenium.annotations.InitialPage;
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
 import com.nordstrom.automation.selenium.examples.ExamplePage;
