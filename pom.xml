@@ -28,7 +28,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>8</maven.compiler.release>
-    <selenium-foundation.version>22.4.2-s3-SNAPSHOT</selenium-foundation.version>
+    <selenium-foundation.version>22.4.2-s3</selenium-foundation.version>
     <junit-foundation.version>15.3.4</junit-foundation.version>
     <guava.version>30.1.1-jre</guava.version>
     <jcommander.version>1.81</jcommander.version>

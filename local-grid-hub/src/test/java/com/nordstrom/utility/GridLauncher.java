@@ -2,6 +2,7 @@ package com.nordstrom.utility;
 
 import java.io.File;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,7 +77,14 @@ public class GridLauncher {
         process.execute();
         
         String[] lines = process.getStdOut().split("[\\n\\r]+");
-        URI hubUri = URI.create(lines[lines.length - 1]);
+        String strUri = lines[lines.length - 1];
+        
+        URI hubUri;
+        try {
+        	hubUri = new URI(strUri);
+        } catch (URISyntaxException e) {
+        	throw new RuntimeException("Launch failed" + getDetails(lines));
+        }
         
         synchronized(SeleniumGrid.class) {
             System.setProperty(SeleniumSettings.HUB_HOST.key(), hubUri.toString());
@@ -84,6 +92,19 @@ public class GridLauncher {
             System.setProperty(SeleniumSettings.BROWSER_NAME.key(), driverPlugin.getBrowserName());
             return SeleniumConfig.getConfig().getSeleniumGrid();
         }
+    }
+    
+    private static String getDetails(String[] lines) {
+    	for (int i = 0; i < lines.length; i++) {
+    		if (lines[i].contains("Exception")) {
+    			StringBuilder details = new StringBuilder(":");
+    			for (; i < lines.length; i++) {
+    				details.append('\n').append(lines[i]);
+    			}
+    			return details.toString();
+    		}
+    	}
+    	return "";
     }
 
 }
