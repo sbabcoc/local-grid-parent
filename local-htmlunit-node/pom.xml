@@ -70,7 +70,6 @@
         <configuration>
           <jdkToolchain>
             <version>${maven.compiler.release}</version>
-            <vendor>oracle</vendor>
           </jdkToolchain>
           <threadCount>1</threadCount>
           <argLine>-javaagent:${com.nordstrom.tools:junit-foundation:jar}</argLine>

@@ -136,7 +136,7 @@ public abstract class AbstractGridTest extends JUnitBase {
         
         try {
             ShadowRootComponent shadowRoot = page.getShadowRootByLocator();
-            assertEquals(shadowRoot.getContent(), SHADOW_DOM_A);
+            assertEquals(shadowRoot.getHeading(), SHADOW_DOM_A);
         } catch (ShadowRootContextException e) {
             assumeNoException(e);
         }
@@ -148,7 +148,7 @@ public abstract class AbstractGridTest extends JUnitBase {
         
         try {
             ShadowRootComponent shadowRoot = page.getShadowRootByElement();
-            assertEquals(shadowRoot.getContent(), SHADOW_DOM_B);
+            assertEquals(shadowRoot.getHeading(), SHADOW_DOM_B);
         } catch (ShadowRootContextException e) {
             assumeNoException(e);
         }
@@ -161,8 +161,8 @@ public abstract class AbstractGridTest extends JUnitBase {
         try {
             List<ShadowRootComponent> shadowRootList = page.getShadowRootList();
             assertEquals(shadowRootList.size(), 2);
-            assertEquals(shadowRootList.get(0).getContent(), SHADOW_DOM_A);
-            assertEquals(shadowRootList.get(1).getContent(), SHADOW_DOM_B);
+            assertEquals(shadowRootList.get(0).getHeading(), SHADOW_DOM_A);
+            assertEquals(shadowRootList.get(1).getHeading(), SHADOW_DOM_B);
         } catch (ShadowRootContextException e) {
             assumeNoException(e);
         }
@@ -175,8 +175,8 @@ public abstract class AbstractGridTest extends JUnitBase {
         try {
             Map<Object, ShadowRootComponent> shadowRootMap = page.getShadowRootMap();
             assertEquals(shadowRootMap.size(), 2);
-            assertEquals(shadowRootMap.get(SHADOW_DOM_A).getContent(), SHADOW_DOM_A);
-            assertEquals(shadowRootMap.get(SHADOW_DOM_B).getContent(), SHADOW_DOM_B);
+            assertEquals(shadowRootMap.get(SHADOW_DOM_A).getHeading(), SHADOW_DOM_A);
+            assertEquals(shadowRootMap.get(SHADOW_DOM_B).getHeading(), SHADOW_DOM_B);
         } catch (ShadowRootContextException e) {
             assumeNoException(e);
         }
