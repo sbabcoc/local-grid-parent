@@ -2,9 +2,9 @@
 
 # local-grid-parent
 
-This utility enables you to launch and shutdown a Selenium 2 Grid instance that manages five **`PhantomJS`** sessions.
+This project produces a collection of "uber-JARs" that make standing up Selenium Grid collections more manageable and modular.
 
-## Launch Local Grid
+## Launch Local Grid Hub
 
 In one step, **`local-grid-utility`** launches a Selenium Grid hub and a single node that supplies `PhantomJS` sessions:
 
