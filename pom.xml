@@ -6,7 +6,7 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>local-grid-parent</name>
+  <name>Local Grid Parent</name>
   <url>https://github.com/sbabcoc/local-grid-parent</url>
 
   <licenses>
@@ -28,24 +28,29 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>8</maven.compiler.release>
-    <selenium-foundation.version>23.1.4-s3</selenium-foundation.version>
-    <junit-foundation.version>16.0.2</junit-foundation.version>
+    <selenium-foundation.version>23.1.8-s3</selenium-foundation.version>
+    <selenium.version>3.141.59</selenium.version>
+    <junit-foundation.version>16.0.3</junit-foundation.version>
     <guava.version>31.1-jre</guava.version>
-    <jcommander.version>1.81</jcommander.version>
+    <jcommander.version>1.82</jcommander.version>
     <commons-lang3.version>3.12.0</commons-lang3.version>
     <commons-text.version>1.9</commons-text.version>
+    <hamcrest.version>2.2</hamcrest.version>
+    <okhttp.version>4.9.1</okhttp.version>
+    <okio.version>2.10.0</okio.version>
+    <kotlin.version>1.5.20</kotlin.version>
+    <junit.version>4.13.2</junit.version>
     <clean-plugin.version>3.1.0</clean-plugin.version>
     <resources-plugin.version>3.2.0</resources-plugin.version>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
+    <exec-plugin.version>3.0.0</exec-plugin.version>
     <jar-plugin.version>3.2.0</jar-plugin.version>
-    <shade-plugin.version>3.2.4</shade-plugin.version>
     <source-plugin.version>3.2.1</source-plugin.version>
     <javadoc-plugin.version>3.3.0</javadoc-plugin.version>
     <gpg-plugin.version>3.0.1</gpg-plugin.version>
     <staging-plugin.version>1.6.8</staging-plugin.version>
     <release-plugin.version>3.0.0-M4</release-plugin.version>
-    <junit.version>4.13.2</junit.version>
     <skipSigning>true</skipSigning>
   </properties>
 
@@ -75,6 +80,11 @@
         <version>${selenium-foundation.version}</version>
       </dependency>
       <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-api</artifactId>
+        <version>${selenium.version}</version>
+      </dependency>
+      <dependency>
         <groupId>com.nordstrom.tools</groupId>
         <artifactId>junit-foundation</artifactId>
         <version>${junit-foundation.version}</version>
@@ -98,6 +108,28 @@
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-text</artifactId>
         <version>${commons-text.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-core</artifactId>
+        <version>${hamcrest.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>okhttp-bom</artifactId>
+        <version>${okhttp.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okio</groupId>
+        <artifactId>okio</artifactId>
+        <version>${okio.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-stdlib-common</artifactId>
+        <version>${kotlin.version}</version>
       </dependency>
       <dependency>
         <groupId>junit</groupId>
@@ -127,12 +159,13 @@
           <version>${surefire-plugin.version}</version>
         </plugin>
         <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>${jar-plugin.version}</version>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>${exec-plugin.version}</version>
         </plugin>
         <plugin>
-          <artifactId>maven-shade-plugin</artifactId>
-          <version>${shade-plugin.version}</version>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${jar-plugin.version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-source-plugin</artifactId>
@@ -181,6 +214,99 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>getClasspathFilenames</id>
+            <goals>
+              <goal>properties</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <jdkToolchain>
+            <version>${maven.compiler.release}</version>
+          </jdkToolchain>
+          <threadCount>1</threadCount>
+          <argLine>-javaagent:${com.nordstrom.tools:junit-foundation:jar}</argLine>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+            <configuration>
+              <keyname>${gpg.keyname}</keyname>
+              <passphraseServerId>${gpg.keyname}</passphraseServerId>
+              <skip>${skipSigning}</skip>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <useReleaseProfile>false</useReleaseProfile>
+          <releaseProfiles>release</releaseProfiles>
+          <goals>deploy</goals>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
   
   <modules>

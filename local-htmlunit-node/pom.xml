@@ -14,7 +14,7 @@
   <description></description>
   
   <properties>
-    <htmlunit.version>2.53.0</htmlunit.version>
+    <htmlunit.version>2.61.0</htmlunit.version>
   </properties>
 
   <dependencies>
@@ -40,7 +40,6 @@
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>htmlunit-driver</artifactId>
       <version>${htmlunit.version}</version>
-      <scope>test</scope>
       <exclusions>
         <exclusion>
           <groupId>org.seleniumhq.selenium</groupId>
@@ -49,32 +48,4 @@
       </exclusions>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>getClasspathFilenames</id>
-            <goals>
-              <goal>properties</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <jdkToolchain>
-            <version>${maven.compiler.release}</version>
-          </jdkToolchain>
-          <threadCount>1</threadCount>
-          <argLine>-javaagent:${com.nordstrom.tools:junit-foundation:jar}</argLine>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>

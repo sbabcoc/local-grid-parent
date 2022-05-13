@@ -7,15 +7,11 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>local-chome-node</artifactId>
+  <artifactId>local-chrome-node</artifactId>
   <packaging>jar</packaging>
   
   <name>Local Chrome Node</name>
   
-  <properties>
-    <selenium.version>3.141.59</selenium.version>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>com.nordstrom.tools</groupId>
@@ -47,32 +43,4 @@
       </exclusions>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>getClasspathFilenames</id>
-            <goals>
-              <goal>properties</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <jdkToolchain>
-            <version>${maven.compiler.release}</version>
-          </jdkToolchain>
-          <threadCount>1</threadCount>
-          <argLine>-javaagent:${com.nordstrom.tools:junit-foundation:jar}</argLine>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>
