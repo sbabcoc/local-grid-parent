@@ -1,19 +1,22 @@
 package com.nordstrom.utility;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.converters.PathConverter;
 import com.nordstrom.automation.selenium.AbstractSeleniumConfig.SeleniumSettings;
 import com.nordstrom.automation.selenium.exceptions.GridServerLaunchFailedException;
-import com.nordstrom.automation.selenium.plugins.PhantomJsPlugin;
 
 public class LocalGridOptions {
 
     @Parameter(names = "-plugins", description = "Path-delimited list of fully-qualified node plugin classes")
-    private String plugins = PhantomJsPlugin.class.getName();
+    private List<String> plugins = new ArrayList<>();
 
     @Parameter(names = "-port", description = "Port for local hub server")
     private Integer port;
@@ -43,7 +46,7 @@ public class LocalGridOptions {
         return port;
     }
 
-    public String getPlugins() {
+    public List<String> getPlugins() {
         return plugins;
     }
 
@@ -74,7 +77,9 @@ public class LocalGridOptions {
     public void injectSettings() {
         String workingFolder = System.getProperty("user.dir");
         
-        System.setProperty(SeleniumSettings.GRID_PLUGINS.key(), plugins);
+        if ( ! plugins.isEmpty()) {
+            System.setProperty(SeleniumSettings.GRID_PLUGINS.key(), String.join(File.pathSeparator, plugins));
+        }
         
         if (port != null) {
             System.setProperty(SeleniumSettings.HUB_PORT.key(), port.toString());

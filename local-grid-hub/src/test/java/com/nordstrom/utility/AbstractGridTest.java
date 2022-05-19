@@ -4,24 +4,31 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assume.assumeNoException;
 import static com.nordstrom.automation.selenium.examples.ExamplePage.*;
 import static org.junit.Assert.assertArrayEquals;
-import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.reflect.MethodUtils;
-import org.junit.Before;
-import org.junit.Test;
 
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.WebDriver;
+
+import com.nordstrom.automation.selenium.DriverPlugin;
+import com.nordstrom.automation.selenium.SeleniumConfig;
 import com.nordstrom.automation.selenium.annotations.InitialPage;
+import com.nordstrom.automation.selenium.core.GridUtility;
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
 import com.nordstrom.automation.selenium.examples.ExamplePage;
 import com.nordstrom.automation.selenium.examples.FrameComponent;
 import com.nordstrom.automation.selenium.examples.ShadowRootComponent;
 import com.nordstrom.automation.selenium.examples.TableComponent;
 import com.nordstrom.automation.selenium.exceptions.ShadowRootContextException;
+import com.nordstrom.automation.selenium.interfaces.DriverProvider;
 import com.nordstrom.automation.selenium.junit.JUnitBase;
 
 @InitialPage(ExamplePage.class)
-public abstract class AbstractGridTest extends JUnitBase {
+public abstract class AbstractGridTest extends JUnitBase implements DriverProvider {
     
     private static SeleniumGrid seleniumGrid = null;
     
@@ -88,6 +95,7 @@ public abstract class AbstractGridTest extends JUnitBase {
     }
     
     @Test
+    @Ignore
     public void testFrameById() {
         ExamplePage page = getInitialPage();
         FrameComponent component = page.getFrameById();
@@ -244,16 +252,26 @@ public abstract class AbstractGridTest extends JUnitBase {
         assertArrayEquals(bodyRefreshCounts, new int[] {1, 1, 1});
     }
     
-    public void launchSeleniumGrid() {
+    @Override
+    public WebDriver provideDriver(Method method) {
+        DriverPlugin plugin = getPlugin();
+        String personality = plugin.getPersonalities().get(plugin.getBrowserName());
+        
+        SeleniumConfig config = SeleniumConfig.getConfig();
+        Capabilities[] capabilities = config.getCapabilitiesForJson(personality);
+        return GridUtility.getDriver(config.getHubUrl(), capabilities[0]);
+    }
+
+    private void launchSeleniumGrid() {
         if (seleniumGrid == null) {
-            try {
-                seleniumGrid = (SeleniumGrid)
-                            MethodUtils.invokeExactStaticMethod(getClass(), "launchGrid");
-            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                throw new RuntimeException(
-                        "Failed getting selenium grid from class: " + getClass().getName(), e);
-            }
+            seleniumGrid = launchGrid();
         }
     }
+    
+    protected SeleniumGrid launchGrid() {
+        return GridLauncher.launch(getPlugin());
+    }
+    
+    public abstract DriverPlugin getPlugin();
     
 }
