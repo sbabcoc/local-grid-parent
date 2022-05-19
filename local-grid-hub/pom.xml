@@ -20,6 +20,7 @@
     <htmlunitPlugin></htmlunitPlugin>
     <operaPlugin></operaPlugin>
     <phantomjsPlugin></phantomjsPlugin>
+    <safariPlugin></safariPlugin>
   </properties>
   
   <dependencies>
@@ -71,7 +72,7 @@
         </executions>
         <configuration>
           <mainClass>com.nordstrom.utility.Main</mainClass>
-          <commandlineArgs>${chromePlugin} ${edgePlugin} ${firefoxPlugin} ${htmlunitPlugin} ${operaPlugin} ${phantomjsPlugin}</commandlineArgs>
+          <commandlineArgs>${chromePlugin} ${edgePlugin} ${firefoxPlugin} ${htmlunitPlugin} ${operaPlugin} ${phantomjsPlugin} ${safariPlugin}</commandlineArgs>
           <includePluginDependencies>true</includePluginDependencies>
           <cleanupDaemonThreads>false</cleanupDaemonThreads>
         </configuration>
@@ -199,6 +200,27 @@
               <dependency>
                 <groupId>com.nordstrom.ui-tools</groupId>
                 <artifactId>local-phantomjs-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>safari</id>
+      <properties>
+        <safariPlugin>-plugins com.nordstrom.automation.selenium.plugins.SafariPlugin</safariPlugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-safari-node</artifactId>
                 <version>${project.version}</version>
               </dependency>
             </dependencies>
