@@ -32,10 +32,16 @@ mvn exec:java -Phtmlunit
 
 Note the `-Phtmlunit` option on the preceding command. This specifies the inclusion of the **htmlunit** profile, which activates the dependencies required by this "headless" browser. It also adds an option to the command line that specifies attachment a node to the grid hub that provides **HtmlUnit** browser sessions.
 
+To launch a grid that provides multiple browser types, specify multiple plugin profiles. The grid collection from this command  provides both Chrome and Firefox sessions:
+
+```bash
+mvn exec:java -Pchrome -Pfirefox
+```
+
 ## Supported Profiles
 
 | Profile | Plugin |
-|--|--|--|
+|--|--|
 | `chrome` | com.nordstrom.automation.selenium.plugins.ChromePlugin |
 | `edge` | com.nordstrom.automation.selenium.plugins.EdgePlugin |
 | `firefox` | com.nordstrom.automation.selenium.plugins.FirefoxPlugin |
@@ -54,6 +60,8 @@ mvn exec:java -Dexec.args="-shutdown"
 
 ## Command Line Options
 
+As show above, `local-grid-hub` accepts command line options via the `exec.args` property. Here's the list of supported options: 
+
 * `-port` : specify port for local hub server (default = 4445)
 * `-plugins` : path-delimited list of fully-qualified node plugin classes
 * `-hubServlets` : comma-delimited list of fully-qualified servlet classes to install on the hub server
@@ -62,6 +70,58 @@ mvn exec:java -Dexec.args="-shutdown"
 * `-logsFolder` : server output logs folder (default = "logs")
 * `-noRedirect` : disable server output redirection (default = `false`)
 * `-shutdown` : shut down active local Grid collection
+
+For example, to add support for the hub status API, specify the corresponding servlets:
+
+```bash
+mvn exec:java -Dexec.args="-hubServlets org.openqa.grid.web.servlet.HubStatusServlet"
+```
+
+Navigating to the hub status path (`/grid/admin/HubStatusServlet`) on the grid will yield a result like this:
+
+```
+{
+  "browserTimeout": 0,
+  "capabilityMatcher": "com.nordstrom.automation.selenium.utility.RevisedCapabilityMatcher",
+  "cleanUpCycle": 5000,
+  "custom": {
+  },
+  "debug": false,
+  "host": "192.168.254.20",
+  "newSessionRequestCount": 0,
+  "newSessionWaitTimeout": -1,
+  "port": 4445,
+  "registry": "org.openqa.grid.internal.DefaultGridRegistry",
+  "role": "hub",
+  "servlets": [
+    "com.nordstrom.automation.selenium.servlet.ExamplePageServlet$FrameA_Servlet",
+    "com.nordstrom.automation.selenium.servlet.ExamplePageServlet$FrameB_Servlet",
+    "com.nordstrom.automation.selenium.servlet.ExamplePageServlet$FrameC_Servlet",
+    "com.nordstrom.automation.selenium.servlet.ExamplePageServlet$FrameD_Servlet",
+    "com.nordstrom.automation.selenium.servlet.ExamplePageServlet",
+    "org.openqa.grid.web.servlet.HubStatusServlet"
+  ],
+  "slotCounts": {
+    "free": 0,
+    "total": 0
+  },
+  "success": true,
+  "throwOnCapabilityNotPresent": true,
+  "timeout": 300000,
+  "withoutServlets": [
+  ]
+}
+```
+
+Notice that the hub configuration includes the **Selenium Foundation** example page servlets. These are available at path `/grid/admin/ExamplePageServlet` to provide a target for basic functionality testing, but you can omit them from your configuration with the `selenium.grid.examples` property:
+
+```bash
+mvn exec:java -Dselenium.grid.examples=false
+```
+
+## Selenium Settings
+
+Because `local-grid-parent` is built on **Selenium Foundation**, all of the settings supported by this library are available for your grid configuration. The settings can be specified individually on the command line as demonstrated by the previous example, or you can specify them collectively in the corresponding settings files (e.g. - `settings.properties`). For details, check out the [Configuring Project Settings](https://github.com/sbabcoc/Selenium-Foundation/blob/master/docs/ConfiguringProjectSettings.md#introduction) page of the **Selenium Foundation** project.
 
 ## Notes
 
