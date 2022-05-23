@@ -1,4 +1,4 @@
-[![Maven Central](https://img.shields.io/maven-central/v/com.nordstrom.ui-tools/local-grid-parent.svg)](https://search.maven.org/search?q=g:com.nordstrom.ui-tools%20AND%20a:local-grid-parent&core=gav)
+[![Maven Central](https://img.shields.io/maven-central/v/com.nordstrom.ui-tools/local-grid-hub.svg)](https://search.maven.org/search?q=g:com.nordstrom.ui-tools%20AND%20a:local-grid-hub&core=gav)
 
 # local-grid-parent
 
