@@ -311,6 +311,15 @@
     </plugins>
   </build>
   
+  <profiles>
+    <profile>
+      <id>signing</id>
+      <properties>
+        <skipSigning>false</skipSigning>
+      </properties>
+    </profile>
+  </profiles>
+
   <modules>
     <module>local-grid-hub</module>
     <module>local-chrome-node</module>

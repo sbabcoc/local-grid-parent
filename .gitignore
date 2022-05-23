@@ -17,3 +17,5 @@ test-output
 *.txt
 .gitignore
 *.json
+pom.xml.releaseBackup
+release.properties
