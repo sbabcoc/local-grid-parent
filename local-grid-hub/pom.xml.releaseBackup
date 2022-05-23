@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.nordstrom.ui-tools</groupId>
+    <artifactId>local-grid-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <name>Local Grid Hub</name>
+  <artifactId>local-grid-hub</artifactId>
+  <packaging>jar</packaging>
+  
+  <description></description>
+  
+  <properties>
+    <chromePlugin />
+    <edgePlugin />
+    <firefoxPlugin />
+    <htmlunitPlugin />
+    <operaPlugin />
+    <phantomjsPlugin />
+    <safariPlugin />
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>com.nordstrom.ui-tools</groupId>
+      <artifactId>selenium-foundation</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>com.nordstrom.tools</groupId>
+          <artifactId>testng-foundation</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.nordstrom.tools</groupId>
+          <artifactId>junit-foundation</artifactId>
+        </exclusion>
+        <exclusion>
+           <groupId>com.github.sbabcoc</groupId>
+           <artifactId>logback-testng</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>net.sourceforge.htmlunit</groupId>
+          <artifactId>htmlunit</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.nordstrom.tools</groupId>
+          <artifactId>guava-agent</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.beust</groupId>
+      <artifactId>jcommander</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.nordstrom.tools</groupId>
+      <artifactId>junit-foundation</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <skipTests>${skipTests}</skipTests>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals><goal>java</goal></goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>com.nordstrom.utility.Main</mainClass>
+          <commandlineArgs>${chromePlugin} ${edgePlugin} ${firefoxPlugin} ${htmlunitPlugin} ${operaPlugin} ${phantomjsPlugin} ${safariPlugin}</commandlineArgs>
+          <includePluginDependencies>true</includePluginDependencies>
+          <cleanupDaemonThreads>false</cleanupDaemonThreads>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <profiles>
+    <profile>
+      <id>chrome</id>
+      <properties>
+        <chromePlugin>-plugins com.nordstrom.automation.selenium.plugins.ChromePlugin</chromePlugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-chrome-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>edge</id>
+      <properties>
+        <edgePlugin>-plugins com.nordstrom.automation.selenium.plugins.EdgePlugin</edgePlugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-edge-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>firefox</id>
+      <properties>
+        <firefoxPlugin>-plugins com.nordstrom.automation.selenium.plugins.FirefoxPlugin</firefoxPlugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-firefox-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>htmlunit</id>
+      <properties>
+        <htmlunitPlugin>-plugins com.nordstrom.automation.selenium.plugins.HtmlUnitPlugin</htmlunitPlugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-htmlunit-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>opera</id>
+      <properties>
+        <operaPlugin>-plugins com.nordstrom.automation.selenium.plugins.OperaPlugin</operaPlugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-opera-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>phantomjs</id>
+      <properties>
+        <phantomjsPlugin>-plugins com.nordstrom.automation.selenium.plugins.PhantomJsPlugin</phantomjsPlugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-phantomjs-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>safari</id>
+      <properties>
+        <safariPlugin>-plugins com.nordstrom.automation.selenium.plugins.SafariPlugin</safariPlugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-safari-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

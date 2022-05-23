@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.nordstrom.ui-tools</groupId>
+    <artifactId>local-grid-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <name>Local HtmlUnit Node</name>
+  <artifactId>local-htmlunit-node</artifactId>
+  <packaging>jar</packaging>
+  
+  <description></description>
+  
+  <properties>
+    <htmlunit.version>2.61.0</htmlunit.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.nordstrom.tools</groupId>
+      <artifactId>junit-foundation</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.nordstrom.ui-tools</groupId>
+      <artifactId>local-grid-hub</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.nordstrom.ui-tools</groupId>
+      <artifactId>local-grid-hub</artifactId>
+      <version>${project.version}</version>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>htmlunit-driver</artifactId>
+      <version>${htmlunit.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.seleniumhq.selenium</groupId>
+          <artifactId>selenium-support</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <skipTests>${skipTests}</skipTests>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
