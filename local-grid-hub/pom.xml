@@ -14,13 +14,13 @@
   <description></description>
   
   <properties>
-    <chromePlugin></chromePlugin>
-    <edgePlugin></edgePlugin>
-    <firefoxPlugin></firefoxPlugin>
-    <htmlunitPlugin></htmlunitPlugin>
-    <operaPlugin></operaPlugin>
-    <phantomjsPlugin></phantomjsPlugin>
-    <safariPlugin></safariPlugin>
+    <chromePlugin />
+    <edgePlugin />
+    <firefoxPlugin />
+    <htmlunitPlugin />
+    <operaPlugin />
+    <phantomjsPlugin />
+    <safariPlugin />
   </properties>
   
   <dependencies>
@@ -62,6 +62,13 @@
   </dependencies>
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <skipTests>${skipTests}</skipTests>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
