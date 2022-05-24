@@ -32,7 +32,7 @@ In one step, you can launch a Selenium Grid hub and a single node that supplies 
 mvn exec:java -Phtmlunit
 ```
 
-Note the `-Phtmlunit` option on the preceding command. This specifies the inclusion of the **htmlunit** profile, which activates the dependencies required by this "headless" browser. It also adds an option to the command line that specifies attachment a node to the grid hub that provides **HtmlUnit** browser sessions.
+Note the `-Phtmlunit` option on the preceding command. This specifies the inclusion of the **htmlunit** profile, which activates the dependencies required by this "headless" browser. It also adds a parameter on the internal command line that specifies activation of a node that provides **HtmlUnit** browser sessions.
 
 To launch a grid that provides multiple browser types, specify multiple plugin profiles. The grid collection from this command  provides both Chrome and Firefox sessions:
 
