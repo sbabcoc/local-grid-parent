@@ -2,7 +2,7 @@
 
 # local-grid-parent
 
-This project produces a collection of modules that make launching **Selenium Grid** collections more manageable and modular.
+Built on [Selenium Foundation](https://github.com/sbabcoc/Selenium-Foundation), this project produces a collection of modules that make launching **Selenium Grid** collections more manageable and modular.
 
 ## Implementation Strategy
 
