@@ -34,7 +34,7 @@ mvn exec:java -Phtmlunit
 
 Note the `-Phtmlunit` option on the preceding command. This specifies the inclusion of the **htmlunit** profile, which activates the dependencies required by this "headless" browser. It also adds a parameter to the internal command line that specifies activation of a node that provides **HtmlUnit** browser sessions.
 
-To launch a grid that provides multiple browser types, specify multiple plugin profiles. The grid collection from this command  provides both Chrome and Firefox sessions:
+To launch a grid that provides multiple browser types, specify multiple plugin profiles. The grid collection from this command  provides both **Chrome** and **Firefox** sessions:
 
 ```bash
 mvn exec:java -Pchrome -Pfirefox
