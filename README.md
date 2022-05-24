@@ -20,9 +20,9 @@ The task of launching the grid servers is performed by the **Maven Exec** plugin
 ## System Requirements
 
 * As indicated above, `local-grid-parent` relies on **Apache Maven** to manage dependencies and execute the Java command line application that launches the specified grid collection. This project was developed with version _3.8.4_.
-* You'll need a Java development kit - JDK 8 at a minimum, but I've been running with Oracle JDK _11.0.13_. You can probably run with a JRE if you don't perform any operations that require compilation.
-* To clone the project repository, you'll need a `git` client. On my Windows 10 development machine, I use release _2.35.1.windows.2_.
+* To run pre-built `local-grid-parent` modules, you'll need a Java 8+ runtime environment.
 * For each of the desktop browsers for which you'll be serving sessions, you'll need to install the corresponding driver executable. If the directory in which these executables are stored is on the PATH, the corresponding System properties will be set automatically.
+* If you want to explore the code and build it locally, you'll need a `git` client to clone the repository and a Java 8+ development kit to build the project.
 
 ## Launch a Local Grid
 
