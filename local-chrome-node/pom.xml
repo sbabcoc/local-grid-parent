@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.nordstrom.ui-tools</groupId>
     <artifactId>local-grid-parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.1.0</version>
   </parent>
 
   <artifactId>local-chrome-node</artifactId>
