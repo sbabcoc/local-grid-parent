@@ -78,10 +78,23 @@
           </execution>
         </executions>
         <configuration>
+          <additionalClasspathElements>
+            <additionalClasspathElement>local-grid-hub-${project.version}.jar</additionalClasspathElement>
+          </additionalClasspathElements>
           <mainClass>com.nordstrom.utility.Main</mainClass>
           <commandlineArgs>${chromePlugin} ${edgePlugin} ${firefoxPlugin} ${htmlunitPlugin} ${operaPlugin} ${phantomjsPlugin} ${safariPlugin}</commandlineArgs>
           <includePluginDependencies>true</includePluginDependencies>
           <cleanupDaemonThreads>false</cleanupDaemonThreads>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>com.nordstrom.utility.Install</mainClass>
+            </manifest>
+          </archive>
         </configuration>
       </plugin>
     </plugins>
