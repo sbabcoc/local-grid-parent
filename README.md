@@ -26,7 +26,7 @@ The task of launching the grid servers is performed by the **Maven Exec** plugin
 
 ## Launch a Local Grid
 
-In one step, you can launch a Selenium Grid hub and a single node that supplies **HtmlUnit** browser sessions. From the `local-grid-hub` directory:
+In one step, you can launch a Selenium Grid hub and a single node that supplies **HtmlUnit** browser sessions. From the directory that contains the `local-grid-hub` JAR and its extracted POM file:
 
 ```bash
 mvn exec:java -Phtmlunit
