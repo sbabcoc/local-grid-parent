@@ -31,7 +31,7 @@
     <maven.compiler.release>8</maven.compiler.release>
     <selenium-foundation.version>26.0.0-s3</selenium-foundation.version>
     <selenium.version>3.141.59</selenium.version>
-    <junit-foundation.version>16.0.3</junit-foundation.version>
+    <junit-foundation.version>17.0.0</junit-foundation.version>
     <guava.version>31.1-jre</guava.version>
     <jcommander.version>1.82</jcommander.version>
     <commons-lang3.version>3.12.0</commons-lang3.version>
