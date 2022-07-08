@@ -11,6 +11,7 @@ import com.beust.jcommander.ParameterException;
 import com.nordstrom.automation.selenium.SeleniumConfig;
 import com.nordstrom.automation.selenium.AbstractSeleniumConfig.SeleniumSettings;
 import com.nordstrom.automation.selenium.core.GridUtility;
+import com.nordstrom.automation.selenium.core.LocalSeleniumGrid;
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
 
 public class Main {
@@ -48,8 +49,9 @@ public class Main {
             SeleniumGrid.create(config, hubUrl).shutdown(true);
         } else {
             if (!isActive) {
-                SeleniumGrid grid = SeleniumGrid.create(config, hubUrl);
+                LocalSeleniumGrid grid = (LocalSeleniumGrid) SeleniumGrid.create(config, hubUrl);
                 hubUrl = grid.getHubServer().getUrl();
+                grid.activate();
             }
             parser.getConsole().println(hubUrl.toString());
         }

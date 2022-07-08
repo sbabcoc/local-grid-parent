@@ -3,6 +3,9 @@ package com.nordstrom.utility;
 import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +13,7 @@ import org.openqa.selenium.net.PortProber;
 import org.openqa.selenium.os.CommandLine;
 
 import com.google.common.collect.ObjectArrays;
+import com.google.common.io.Resources;
 import com.nordstrom.automation.selenium.AbstractSeleniumConfig.SeleniumSettings;
 import com.nordstrom.automation.selenium.DriverPlugin;
 import com.nordstrom.automation.selenium.SeleniumConfig;
@@ -31,7 +35,8 @@ public class GridLauncher {
             "org.apache.commons.beanutils.DynaBean",
             "org.apache.http.HttpRequest",
             "org.apache.http.client.HttpClient",
-            "com.nordstrom.common.file.PathUtils"
+            "com.nordstrom.common.file.PathUtils",
+            "org.apache.commons.text.Builder"
             };
 
     private GridLauncher() {
@@ -84,6 +89,17 @@ public class GridLauncher {
             argsList.add(agentSpec);
         }
         
+        try {
+            // find settings file for Selenium Foundation
+            URL settings = Resources.getResource("settings.properties");
+            // get path to folder that contains this file
+            Path folder = Paths.get(settings.toURI()).getParent();
+            // prepend resource folder path to class path
+            classPath = folder.toString() + File.pathSeparator + classPath;
+        } catch (Exception e) {
+            // don't die trying
+        }
+        
         // specify Java class path
         argsList.add("-cp");
         argsList.add(classPath);        
@@ -113,7 +129,7 @@ public class GridLauncher {
         synchronized(SeleniumGrid.class) {
             System.setProperty(SeleniumSettings.HUB_HOST.key(), hubUri.toString());
             System.setProperty(SeleniumSettings.HUB_PORT.key(), Integer.toString(hubUri.getPort()));
-            return SeleniumConfig.getConfig().getSeleniumGrid();
+            return config.getSeleniumGrid();
         }
     }
     
