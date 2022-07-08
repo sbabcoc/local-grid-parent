@@ -21,6 +21,7 @@
     <operaPlugin />
     <phantomjsPlugin />
     <safariPlugin />
+    <uiautomator2Plugin />
   </properties>
   
   <dependencies>
@@ -82,7 +83,7 @@
             <additionalClasspathElement>local-grid-hub-${project.version}.jar</additionalClasspathElement>
           </additionalClasspathElements>
           <mainClass>com.nordstrom.utility.Main</mainClass>
-          <commandlineArgs>${chromePlugin} ${edgePlugin} ${firefoxPlugin} ${htmlunitPlugin} ${operaPlugin} ${phantomjsPlugin} ${safariPlugin}</commandlineArgs>
+          <commandlineArgs>${chromePlugin} ${edgePlugin} ${firefoxPlugin} ${htmlunitPlugin} ${operaPlugin} ${phantomjsPlugin} ${safariPlugin} ${uiautomator2Plugin}</commandlineArgs>
           <includePluginDependencies>true</includePluginDependencies>
           <cleanupDaemonThreads>false</cleanupDaemonThreads>
         </configuration>
@@ -241,6 +242,27 @@
               <dependency>
                 <groupId>com.nordstrom.ui-tools</groupId>
                 <artifactId>local-safari-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>uiautomator2</id>
+      <properties>
+        <uiautomator2Plugin>-plugins com.nordstrom.automation.selenium.plugins.UiAutomator2Plugin</uiautomator2Plugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-uiautomator2-node</artifactId>
                 <version>${project.version}</version>
               </dependency>
             </dependencies>

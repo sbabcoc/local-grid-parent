@@ -215,7 +215,7 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
         assertArrayEquals(bodyRefreshCounts, new int[] {0, 0, 0});
         
         // refresh page to force DOM rebuild
-        page.getDriver().navigate().refresh();
+        page.getWrappedDriver().navigate().refresh();
         // verify table contents
         // NOTE: This necessitates refreshing stale element references
         verifyTable(component);
