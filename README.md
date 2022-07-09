@@ -27,17 +27,18 @@ The task of launching the grid servers is performed by the **Maven Exec** plugin
 
 ## Requirements for Appium
 
-* Unlike the other drivers supported by `local-grid-parent` which are implemented in Java, the "engines" provided by [Appium](https://appium.io) are implemented in NodeJS. To launch a **Selenium Grid** collection that includes Appium nodes, you'll need the following additional tools:
-	* Platform-specific Node Version Manager: The installation page for `npm` (below) provides links to recommended version managers.
-	* [NodeJS (node)](https://nodejs.org): Currently, I'm running version 17.5.0
-	* [Node Package Manager (npm)](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): Currently, I'm running version 8.13.2
-	* [Node Process Manager (pm2)](https://pm2.io/): Currently, I'm running version 5.2.0
-	* [Appium](https://appium.io): Currently, I'm running version 1.22.3
-* Typically, these tools must be on the system file path. However, you can provide specific paths for each of these via **Selenium Foundation** settings:
-	* **NPM_BINARY_PATH**: If unspecified, the `PATH` is searched
-	* **NODE_BINARY_PATH**: If unspecified, the `NODE_BINARY_PATH` environment variable is checked; if this is undefined, the `PATH` is searched
-	* **PM2_BINARY_PATH**: If unspecified, the `PATH` is searched
-	* **APPIUM_BINARY_PATH**: If unspecified, the `APPIUM_BINARY_PATH` environment variable is checked; if this is undefined, the `PATH` is searched
+Unlike the other drivers supported by `local-grid-parent` which are implemented in Java, the "engines" provided by [Appium](https://appium.io) are implemented in NodeJS. To launch a **Selenium Grid** collection that includes Appium nodes, you'll need the following additional tools:
+* Platform-specific Node Version Manager: The installation page for `npm` (below) provides links to recommended version managers.
+* [NodeJS (node)](https://nodejs.org): Currently, I'm running version 17.5.0
+* [Node Package Manager (npm)](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): Currently, I'm running version 8.13.2
+* [Node Process Manager (pm2)](https://pm2.io/): Currently, I'm running version 5.2.0
+* [Appium](https://appium.io): Currently, I'm running version 1.22.3
+
+Typically, these tools must be on the system file path. However, you can provide specific paths for each of these via **Selenium Foundation** settings:
+* **NPM_BINARY_PATH**: If unspecified, the `PATH` is searched
+* **NODE_BINARY_PATH**: If unspecified, the `NODE_BINARY_PATH` environment variable is checked; if this is undefined, the `PATH` is searched
+* **PM2_BINARY_PATH**: If unspecified, the `PATH` is searched
+* **APPIUM_BINARY_PATH**: If unspecified, the `APPIUM_BINARY_PATH` environment variable is checked; if this is undefined, the `PATH` is searched
 
 ## Launch a Local Grid
 
