@@ -75,6 +75,7 @@ To shut down an active local grid instance, specify the `-shutdown` argument:
 ```bash
 mvn exec:java -Dexec.args="-shutdown"
 ```
+**NOTE**: Appium local grid nodes will be shut down by this command, but the `pm2` process manager will remain active. This is due to the possibility that it may be managing other processes and its meager resource consumption.
 
 ## Command Line Options
 
