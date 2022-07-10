@@ -7,7 +7,7 @@ Built on [Selenium Foundation](https://github.com/sbabcoc/Selenium-Foundation), 
 
 ## Implementation Strategy
 
-Unlike other projects with similar objectives, `local-grid-parent` simplifies the process of launching **Selenium Grid** collections by leveraging the power of **Apache Maven** to marshal the dependencies required by the specified grid configuration. Instead of lumping everything together in a massive "uber-JAR", the submodules defined in this project declare the dependencies of hub and node servers, including a bit of glue to configure and launch these servers,
+Unlike other projects with similar objectives, `local-grid-parent` simplifies the process of launching **Selenium Grid** collections by leveraging the power of **Apache Maven** to marshal the dependencies required by the specified grid configuration. Instead of lumping everything together in a massive "uber-JAR", the submodules defined in this project declare the dependencies of hub and node servers, including a bit of glue to configure and launch these servers.
 
 This approach yields several benefits:
 * To install, just download the `local-grid-hub` JAR and run it:
