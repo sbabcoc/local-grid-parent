@@ -62,6 +62,7 @@ mvn exec:java -Pchrome -Pfirefox
 |--|--|
 | `chrome` | com.nordstrom.automation.selenium.plugins.ChromePlugin |
 | `edge` | com.nordstrom.automation.selenium.plugins.EdgePlugin |
+| `espresso` | com.nordstrom.automation.selenium.plugins.EspressoPlugin |
 | `firefox` | com.nordstrom.automation.selenium.plugins.FirefoxPlugin |
 | `htmlunit` | com.nordstrom.automation.selenium.plugins.HtmlUnitPlugin |
 | `opera` | com.nordstrom.automation.selenium.plugins.OperaPlugin |
