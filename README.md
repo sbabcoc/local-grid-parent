@@ -11,7 +11,7 @@ Unlike other projects with similar objectives, `local-grid-parent` simplifies th
 
 This approach yields several benefits:
 * To install, just download the `local-grid-hub` JAR and run it:
-  * `java -jar local-grid-hub-1.3.0.jar`
+  * `java -jar local-grid-hub-1.3.1.jar`
   * **NOTE**: The `maven-central` badge above links to the latest release.
 * Because all dependencies are managed individually, remediation of defects and vulnerabilities is easy.
 * Your installation gets the dependencies it needs, without getting bulked up with unused extras.
