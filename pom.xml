@@ -29,7 +29,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>8</maven.compiler.release>
-    <selenium-foundation.version>26.1.1-s3</selenium-foundation.version>
+    <selenium-foundation.version>26.1.2-s3</selenium-foundation.version>
     <selenium.version>3.141.59</selenium.version>
     <junit-foundation.version>17.0.1</junit-foundation.version>
     <guava.version>31.1-jre</guava.version>
