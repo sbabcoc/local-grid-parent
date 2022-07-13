@@ -13,10 +13,6 @@
   
   <description />
   
-  <properties>
-    <htmlunit.version>2.63.0</htmlunit.version>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>com.nordstrom.tools</groupId>
@@ -39,7 +35,6 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>htmlunit-driver</artifactId>
-      <version>${htmlunit.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.seleniumhq.selenium</groupId>

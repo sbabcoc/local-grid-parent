@@ -12,11 +12,6 @@
   
   <name>Local PhantomJS Node</name>
   
-  <properties>
-    <selenium.version>3.141.59</selenium.version>
-    <phantomjsdriver.version>1.4.4</phantomjsdriver.version>
-  </properties>
-
   <dependencies>
     <dependency>
       <groupId>com.nordstrom.tools</groupId>
@@ -39,7 +34,6 @@
     <dependency>
       <groupId>com.codeborne</groupId>
       <artifactId>phantomjsdriver</artifactId>
-      <version>${phantomjsdriver.version}</version>
       <exclusions>
         <exclusion>
           <groupId>org.seleniumhq.selenium</groupId>
