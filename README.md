@@ -69,6 +69,7 @@ mvn exec:java -Pchrome -Pfirefox
 | `phantomjs` | com.nordstrom.automation.selenium.plugins.PhantomJsPlugin |
 | `safari` | com.nordstrom.automation.selenium.plugins.SafariPlugin |
 | `uiautomator2` | com.nordstrom.automation.selenium.plugins.UiAutomator2Plugin |
+| `windows` | com.nordstrom.automation.selenium.plugins.WindowsPlugin |
 
 ## Shut Down a Local Grid
 
