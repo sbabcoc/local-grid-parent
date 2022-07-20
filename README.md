@@ -59,7 +59,7 @@ mvn exec:java -Pchrome -Pfirefox
 ## Supported Profiles
 
 | Profile | Plugin |
-|--|--|
+|:--:|--|
 | `chrome` | com.nordstrom.automation.selenium.plugins.ChromePlugin |
 | `edge` | com.nordstrom.automation.selenium.plugins.EdgePlugin |
 | `espresso` | com.nordstrom.automation.selenium.plugins.EspressoPlugin |
