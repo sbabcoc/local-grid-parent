@@ -18,6 +18,7 @@ import com.nordstrom.automation.selenium.AbstractSeleniumConfig.SeleniumSettings
 import com.nordstrom.automation.selenium.DriverPlugin;
 import com.nordstrom.automation.selenium.SeleniumConfig;
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
+import com.nordstrom.common.file.PathUtils;
 import com.nordstrom.common.jar.JarUtils;
 
 /**
@@ -35,7 +36,6 @@ public class GridLauncher {
             "org.apache.commons.beanutils.DynaBean",
             "org.apache.http.HttpRequest",
             "org.apache.http.client.HttpClient",
-            "com.nordstrom.common.file.PathUtils",
             "org.apache.commons.text.Builder"
             };
 
@@ -53,7 +53,7 @@ public class GridLauncher {
      *     <li>{@link SeleniumSettings#HUB_PORT HUB_PORT}: port of the local Selenium Grid hub</li>
      * </ul>
      * 
-     * @param driverPlugin {@link DriverPlugin} that provides grid node configuration
+     * @param driverPlugins {@link DriverPlugin} that provides grid node configuration
      * @return {@link SeleniumGrid} object that represents the new grid instance
      */
     public static SeleniumGrid launch(DriverPlugin... driverPlugins) {
@@ -84,10 +84,8 @@ public class GridLauncher {
         // extract classpath specification
         String classPath = contextPaths.remove(0);
         // for each specified Java agent...
-        for (String agentSpec : contextPaths) {
-            // ... specify a 'javaagent' argument
-            argsList.add(agentSpec);
-        }
+        // ... specify a 'javaagent' argument
+        argsList.addAll(contextPaths);
         
         try {
             // find settings file for Selenium Foundation
@@ -114,6 +112,7 @@ public class GridLauncher {
         
         String executable = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
         CommandLine process = new CommandLine(executable, argsList.toArray(new String[0]));
+        process.setEnvironmentVariable("PATH", PathUtils.getSystemPath());
         process.execute();
         
         String[] lines = process.getStdOut().split("[\\n\\r]+");

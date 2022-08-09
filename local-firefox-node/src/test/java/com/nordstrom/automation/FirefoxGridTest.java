@@ -6,7 +6,7 @@ import com.nordstrom.utility.AbstractGridTest;
 
 public class FirefoxGridTest extends AbstractGridTest {
     
-    private DriverPlugin plugin = new FirefoxPlugin();
+    private final DriverPlugin plugin = new FirefoxPlugin();
 
     @Override
     public DriverPlugin getPlugin() {

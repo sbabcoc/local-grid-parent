@@ -6,7 +6,7 @@ import com.nordstrom.utility.AbstractGridTest;
 
 public class PhantomJsGridTest extends AbstractGridTest {
 
-    private DriverPlugin plugin = new PhantomJsPlugin();
+    private final DriverPlugin plugin = new PhantomJsPlugin();
 
     @Override
     public DriverPlugin getPlugin() {
