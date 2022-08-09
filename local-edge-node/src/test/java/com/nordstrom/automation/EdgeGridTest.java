@@ -6,7 +6,7 @@ import com.nordstrom.utility.AbstractGridTest;
 
 public class EdgeGridTest extends AbstractGridTest {
 
-    private DriverPlugin plugin = new EdgePlugin();
+    private final DriverPlugin plugin = new EdgePlugin();
 
     @Override
     public DriverPlugin getPlugin() {

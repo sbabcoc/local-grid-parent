@@ -41,15 +41,15 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
     @Test
     public void testBasicPage() {
         ExamplePage page = getInitialPage();
-        assertEquals(page.getTitle(), TITLE);
+        assertEquals(TITLE, page.getTitle());
     }
     
     @Test
     public void testParagraphs() {
         ExamplePage page = getInitialPage();
         List<String> paraList = page.getParagraphs();
-        assertEquals(paraList.size(), 3);
-        assertArrayEquals(paraList.toArray(), PARAS);
+        assertEquals(3, paraList.size());
+        assertArrayEquals(PARAS, paraList.toArray());
     }
     
     @Test
@@ -65,41 +65,41 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
      * @param component table component to be verified
      */
     private static void verifyTable(TableComponent component) {
-        assertArrayEquals(component.getHeadings().toArray(), HEADINGS);
+        assertArrayEquals(HEADINGS, component.getHeadings().toArray());
         List<List<String>> content = component.getContent();
-        assertEquals(content.size(), 3);
-        assertArrayEquals(content.get(0).toArray(), CONTENT[0]);
-        assertArrayEquals(content.get(1).toArray(), CONTENT[1]);
-        assertArrayEquals(content.get(2).toArray(), CONTENT[2]);
+        assertEquals(3, content.size());
+        assertArrayEquals(CONTENT[0], content.get(0).toArray());
+        assertArrayEquals(CONTENT[1], content.get(1).toArray());
+        assertArrayEquals(CONTENT[2], content.get(2).toArray());
     }
     
     @Test
     public void testFrameByLocator() {
         ExamplePage page = getInitialPage();
         FrameComponent component = page.getFrameByLocator();
-        assertEquals(component.getPageContent(), FRAME_A);
+        assertEquals(FRAME_A, component.getPageContent());
     }
     
     @Test
     public void testFrameByElement() {
         ExamplePage page = getInitialPage();
         FrameComponent component = page.getFrameByElement();
-        assertEquals(component.getPageContent(), FRAME_B);
+        assertEquals(FRAME_B, component.getPageContent());
     }
     
     @Test
     public void testFrameByIndex() {
         ExamplePage page = getInitialPage();
         FrameComponent component = page.getFrameByIndex();
-        assertEquals(component.getPageContent(), FRAME_C);
+        assertEquals(FRAME_C, component.getPageContent());
     }
     
     @Test
-    @Ignore
+    @Ignore // "frame by ID" is deprecated
     public void testFrameById() {
         ExamplePage page = getInitialPage();
         FrameComponent component = page.getFrameById();
-        assertEquals(component.getPageContent(), FRAME_D);
+        assertEquals(FRAME_D, component.getPageContent());
     }
     
     @Test
@@ -120,22 +120,22 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
     public void testFrameList() {
         ExamplePage page = getInitialPage();
         List<FrameComponent> frameList = page.getFrameList();
-        assertEquals(frameList.size(), 4);
-        assertEquals(frameList.get(0).getPageContent(), FRAME_A);
-        assertEquals(frameList.get(1).getPageContent(), FRAME_B);
-        assertEquals(frameList.get(2).getPageContent(), FRAME_C);
-        assertEquals(frameList.get(3).getPageContent(), FRAME_D);
+        assertEquals(4, frameList.size());
+        assertEquals(FRAME_A, frameList.get(0).getPageContent());
+        assertEquals(FRAME_B, frameList.get(1).getPageContent());
+        assertEquals(FRAME_C, frameList.get(2).getPageContent());
+        assertEquals(FRAME_D, frameList.get(3).getPageContent());
     }
     
     @Test
     public void testFrameMap() {
         ExamplePage page = getInitialPage();
         Map<Object, FrameComponent> frameMap = page.getFrameMap();
-        assertEquals(frameMap.size(), 4);
-        assertEquals(frameMap.get(FRAME_A).getPageContent(), FRAME_A);
-        assertEquals(frameMap.get(FRAME_B).getPageContent(), FRAME_B);
-        assertEquals(frameMap.get(FRAME_C).getPageContent(), FRAME_C);
-        assertEquals(frameMap.get(FRAME_D).getPageContent(), FRAME_D);
+        assertEquals(4, frameMap.size());
+        assertEquals(FRAME_A, frameMap.get(FRAME_A).getPageContent());
+        assertEquals(FRAME_B, frameMap.get(FRAME_B).getPageContent());
+        assertEquals(FRAME_C, frameMap.get(FRAME_C).getPageContent());
+        assertEquals(FRAME_D, frameMap.get(FRAME_D).getPageContent());
     }
     
     @Test
@@ -144,7 +144,7 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
         
         try {
             ShadowRootComponent shadowRoot = page.getShadowRootByLocator();
-            assertEquals(shadowRoot.getHeading(), SHADOW_DOM_A);
+            assertEquals(SHADOW_DOM_A, shadowRoot.getHeading());
         } catch (ShadowRootContextException e) {
             assumeNoException(e);
         }
@@ -156,7 +156,7 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
         
         try {
             ShadowRootComponent shadowRoot = page.getShadowRootByElement();
-            assertEquals(shadowRoot.getHeading(), SHADOW_DOM_B);
+            assertEquals(SHADOW_DOM_B, shadowRoot.getHeading());
         } catch (ShadowRootContextException e) {
             assumeNoException(e);
         }
@@ -168,9 +168,9 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
         
         try {
             List<ShadowRootComponent> shadowRootList = page.getShadowRootList();
-            assertEquals(shadowRootList.size(), 2);
-            assertEquals(shadowRootList.get(0).getHeading(), SHADOW_DOM_A);
-            assertEquals(shadowRootList.get(1).getHeading(), SHADOW_DOM_B);
+            assertEquals(2, shadowRootList.size());
+            assertEquals(SHADOW_DOM_A, shadowRootList.get(0).getHeading());
+            assertEquals(SHADOW_DOM_B, shadowRootList.get(1).getHeading());
         } catch (ShadowRootContextException e) {
             assumeNoException(e);
         }
@@ -182,9 +182,9 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
         
         try {
             Map<Object, ShadowRootComponent> shadowRootMap = page.getShadowRootMap();
-            assertEquals(shadowRootMap.size(), 2);
-            assertEquals(shadowRootMap.get(SHADOW_DOM_A).getHeading(), SHADOW_DOM_A);
-            assertEquals(shadowRootMap.get(SHADOW_DOM_B).getHeading(), SHADOW_DOM_B);
+            assertEquals(2, shadowRootMap.size());
+            assertEquals(SHADOW_DOM_A, shadowRootMap.get(SHADOW_DOM_A).getHeading());
+            assertEquals(SHADOW_DOM_B, shadowRootMap.get(SHADOW_DOM_B).getHeading());
         } catch (ShadowRootContextException e) {
             assumeNoException(e);
         }
@@ -209,10 +209,10 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
         int[] bodyRefreshCounts = component.getBodyRefreshCounts();
         
         // verify no initial refresh requests
-        assertEquals(pageRefreshCount, 0);
-        assertEquals(tableRefreshCount, 0);
-        assertEquals(headRefreshCount, 0);
-        assertArrayEquals(bodyRefreshCounts, new int[] {0, 0, 0});
+        assertEquals(0, pageRefreshCount);
+        assertEquals(0, tableRefreshCount);
+        assertEquals(0, headRefreshCount);
+        assertArrayEquals(new int[] {0, 0, 0}, bodyRefreshCounts);
         
         // refresh page to force DOM rebuild
         page.getWrappedDriver().navigate().refresh();
@@ -227,13 +227,13 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
         bodyRefreshCounts = component.getBodyRefreshCounts();
         
         // 1 page refresh request from its table context
-        assertEquals(pageRefreshCount, 1);
+        assertEquals(1, pageRefreshCount);
         // 1 table refresh request from each of its four row contexts
-        assertEquals(tableRefreshCount, 4);
+        assertEquals(4, tableRefreshCount);
         // 1 head row refresh request from one of its web element contexts
-        assertEquals(headRefreshCount, 1);
+        assertEquals(1, headRefreshCount);
         // 1 refresh request per body row from one of its web element contexts
-        assertArrayEquals(bodyRefreshCounts, new int[] {1, 1, 1});
+        assertArrayEquals(new int[] {1, 1, 1}, bodyRefreshCounts);
         
         // verify table contents again
         // NOTE: No additional refresh requests are expected
@@ -246,10 +246,10 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
         bodyRefreshCounts = component.getBodyRefreshCounts();
         
         // verify no additional refresh requests
-        assertEquals(pageRefreshCount, 1);
-        assertEquals(tableRefreshCount, 4);
-        assertEquals(headRefreshCount, 1);
-        assertArrayEquals(bodyRefreshCounts, new int[] {1, 1, 1});
+        assertEquals(1, pageRefreshCount);
+        assertEquals(4, tableRefreshCount);
+        assertEquals(1, headRefreshCount);
+        assertArrayEquals(new int[] {1, 1, 1}, bodyRefreshCounts);
     }
     
     @Override

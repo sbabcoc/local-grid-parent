@@ -6,7 +6,7 @@ import com.nordstrom.utility.AbstractGridTest;
 
 public class HtmlUnitGridTest extends AbstractGridTest {
 
-    private DriverPlugin plugin = new HtmlUnitPlugin();
+    private final DriverPlugin plugin = new HtmlUnitPlugin();
 
     @Override
     public DriverPlugin getPlugin() {

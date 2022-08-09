@@ -6,7 +6,7 @@ import com.nordstrom.utility.AbstractGridTest;
 
 public class SafariGridTest extends AbstractGridTest {
 
-    private DriverPlugin plugin = new SafariPlugin();
+    private final DriverPlugin plugin = new SafariPlugin();
 
     @Override
     public DriverPlugin getPlugin() {

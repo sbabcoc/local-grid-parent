@@ -17,7 +17,7 @@ import com.nordstrom.utility.GridLauncher;
 public class EspressoGridTest extends JUnitBase {
     
     private static SeleniumGrid seleniumGrid = null;
-    private DriverPlugin plugin = new EspressoPlugin();
+    private final DriverPlugin plugin = new EspressoPlugin();
 
     @Before
     public void beforeTest() {
@@ -29,7 +29,7 @@ public class EspressoGridTest extends JUnitBase {
     public void testSearchActivity() {
         AndroidPage page = getInitialPage();
         page.submitSearchQuery("Hello world!");
-        assertEquals(page.getSearchResult(), "Hello world!");
+        assertEquals("Hello world!", page.getSearchResult());
     }
 
     private void launchSeleniumGrid() {

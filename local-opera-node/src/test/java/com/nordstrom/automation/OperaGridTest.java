@@ -6,7 +6,7 @@ import com.nordstrom.utility.AbstractGridTest;
 
 public class OperaGridTest extends AbstractGridTest {
     
-    private DriverPlugin plugin = new OperaPlugin();
+    private final DriverPlugin plugin = new OperaPlugin();
 
     @Override
     public DriverPlugin getPlugin() {
