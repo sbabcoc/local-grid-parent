@@ -19,10 +19,13 @@
     <espressoPlugin />
     <firefoxPlugin />
     <htmlunitPlugin />
+    <mac2Plugin />
     <operaPlugin />
     <phantomjsPlugin />
     <safariPlugin />
     <uiautomator2Plugin />
+    <windowsPlugin />
+    <xcuitestPlugin />
   </properties>
   
   <dependencies>
@@ -84,7 +87,7 @@
             <additionalClasspathElement>local-grid-hub-${project.version}.jar</additionalClasspathElement>
           </additionalClasspathElements>
           <mainClass>com.nordstrom.utility.Main</mainClass>
-          <commandlineArgs>${chromePlugin} ${edgePlugin} ${espressoPlugin} ${firefoxPlugin} ${htmlunitPlugin} ${operaPlugin} ${phantomjsPlugin} ${safariPlugin} ${uiautomator2Plugin}</commandlineArgs>
+          <commandlineArgs>${chromePlugin} ${edgePlugin} ${espressoPlugin} ${firefoxPlugin} ${htmlunitPlugin} ${mac2Plugin} ${operaPlugin} ${phantomjsPlugin} ${safariPlugin} ${uiautomator2Plugin} ${windowsPlugin} ${xcuitestPlugin}</commandlineArgs>
           <includePluginDependencies>true</includePluginDependencies>
           <cleanupDaemonThreads>false</cleanupDaemonThreads>
         </configuration>
@@ -209,6 +212,27 @@
       </build>
     </profile>
     <profile>
+      <id>mac2</id>
+      <properties>
+        <mac2Plugin>-plugins com.nordstrom.automation.selenium.plugins.Mac2Plugin</mac2Plugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-mac2-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
       <id>opera</id>
       <properties>
         <operaPlugin>-plugins com.nordstrom.automation.selenium.plugins.OperaPlugin</operaPlugin>
@@ -285,6 +309,48 @@
               <dependency>
                 <groupId>com.nordstrom.ui-tools</groupId>
                 <artifactId>local-uiautomator2-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>windows</id>
+      <properties>
+        <windowsPlugin>-plugins com.nordstrom.automation.selenium.plugins.WindowsPlugin</windowsPlugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-windows-node</artifactId>
+                <version>${project.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>xcuitest</id>
+      <properties>
+        <xcuitestPlugin>-plugins com.nordstrom.automation.selenium.plugins.XCUITestPlugin</xcuitestPlugin>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <dependencies>
+              <dependency>
+                <groupId>com.nordstrom.ui-tools</groupId>
+                <artifactId>local-xcuitest-node</artifactId>
                 <version>${project.version}</version>
               </dependency>
             </dependencies>
