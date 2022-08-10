@@ -11,7 +11,7 @@ Unlike other projects with similar objectives, `local-grid-parent` simplifies th
 
 This approach yields several benefits:
 * To install, just download the `local-grid-hub` JAR and run it:
-  * `java -jar local-grid-hub-1.4.0.jar`
+  * `java -jar local-grid-hub-1.5.0.jar`
   * **NOTE**: The `maven-central` badge above links to the latest release.
 * Because all dependencies are managed individually, remediation of defects and vulnerabilities is easy.
 * Your installation gets the dependencies it needs, without getting bulked up with unused extras.
@@ -65,6 +65,7 @@ mvn exec:java -Pchrome -Pfirefox
 | `espresso` | com.nordstrom.automation.selenium.plugins.EspressoPlugin |
 | `firefox` | com.nordstrom.automation.selenium.plugins.FirefoxPlugin |
 | `htmlunit` | com.nordstrom.automation.selenium.plugins.HtmlUnitPlugin |
+| `mac2` | com.nordstrom.automation.selenium.plugins.Mac2Plugin |
 | `opera` | com.nordstrom.automation.selenium.plugins.OperaPlugin |
 | `phantomjs` | com.nordstrom.automation.selenium.plugins.PhantomJsPlugin |
 | `safari` | com.nordstrom.automation.selenium.plugins.SafariPlugin |
