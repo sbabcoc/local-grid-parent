@@ -26,7 +26,7 @@
     <uiautomator2Plugin />
     <windowsPlugin />
     <xcuitestPlugin />
-    <appiumWithPM2 />
+    <appiumWithPM2>false</appiumWithPM2>
   </properties>
   
   <dependencies>
@@ -84,11 +84,17 @@
           </execution>
         </executions>
         <configuration>
+          <systemProperties>
+            <systemProperty>
+              <key>appium.with.pm2</key>
+              <value>${appiumWithPM2}</value>
+            </systemProperty>
+          </systemProperties>
           <additionalClasspathElements>
             <additionalClasspathElement>local-grid-hub-${project.version}.jar</additionalClasspathElement>
           </additionalClasspathElements>
           <mainClass>com.nordstrom.utility.Main</mainClass>
-          <commandlineArgs>${chromePlugin} ${edgePlugin} ${espressoPlugin} ${firefoxPlugin} ${htmlunitPlugin} ${mac2Plugin} ${operaPlugin} ${phantomjsPlugin} ${safariPlugin} ${uiautomator2Plugin} ${windowsPlugin} ${xcuitestPlugin} ${appiumWithPM2}</commandlineArgs>
+          <commandlineArgs>${chromePlugin} ${edgePlugin} ${espressoPlugin} ${firefoxPlugin} ${htmlunitPlugin} ${mac2Plugin} ${operaPlugin} ${phantomjsPlugin} ${safariPlugin} ${uiautomator2Plugin} ${windowsPlugin} ${xcuitestPlugin}</commandlineArgs>
           <includePluginDependencies>true</includePluginDependencies>
           <cleanupDaemonThreads>false</cleanupDaemonThreads>
         </configuration>
@@ -153,7 +159,7 @@
       <id>espresso</id>
       <properties>
         <espressoPlugin>-plugins com.nordstrom.automation.selenium.plugins.EspressoPlugin</espressoPlugin>
-        <appiumWithPM2>-Dappium.with.pm2</appiumWithPM2>
+        <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
         <plugins>
@@ -217,7 +223,7 @@
       <id>mac2</id>
       <properties>
         <mac2Plugin>-plugins com.nordstrom.automation.selenium.plugins.Mac2Plugin</mac2Plugin>
-        <appiumWithPM2>-Dappium.with.pm2</appiumWithPM2>
+        <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
         <plugins>
@@ -302,7 +308,7 @@
       <id>uiautomator2</id>
       <properties>
         <uiautomator2Plugin>-plugins com.nordstrom.automation.selenium.plugins.UiAutomator2Plugin</uiautomator2Plugin>
-        <appiumWithPM2>-Dappium.with.pm2</appiumWithPM2>
+        <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
         <plugins>
@@ -324,7 +330,7 @@
       <id>windows</id>
       <properties>
         <windowsPlugin>-plugins com.nordstrom.automation.selenium.plugins.WindowsPlugin</windowsPlugin>
-        <appiumWithPM2>-Dappium.with.pm2</appiumWithPM2>
+        <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
         <plugins>
@@ -346,7 +352,7 @@
       <id>xcuitest</id>
       <properties>
         <xcuitestPlugin>-plugins com.nordstrom.automation.selenium.plugins.XCUITestPlugin</xcuitestPlugin>
-        <appiumWithPM2>-Dappium.with.pm2</appiumWithPM2>
+        <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
         <plugins>
