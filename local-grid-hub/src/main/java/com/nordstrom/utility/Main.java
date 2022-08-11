@@ -39,7 +39,7 @@ public class Main {
         URL hubUrl = config.getHubUrl();
         if (hubUrl == null) {
             int hubPort = config.getInt(SeleniumSettings.HUB_PORT.key());
-            String hostStr = "http://" + GridUtility.getLocalHost() + ":" + hubPort;
+            String hostStr = "http://" + GridUtility.getLocalHost() + ":" + hubPort + "/wd/hub";
             hubUrl = new URL(hostStr);
         }
 
