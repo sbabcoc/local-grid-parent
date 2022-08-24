@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.nordstrom.ui-tools</groupId>
     <artifactId>local-grid-parent</artifactId>
-    <version>1.6.5-SNAPSHOT</version>
+    <version>1.7.0</version>
   </parent>
 
   <name>Local HtmlUnit Node</name>
