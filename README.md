@@ -56,6 +56,10 @@ To launch a grid that provides multiple browser types, specify multiple plugin p
 mvn exec:java -Pchrome -Pfirefox
 ```
 
+## Augment an Active Grid
+
+
+
 ## Supported Profiles
 
 | Profile | Plugin |
