@@ -58,7 +58,7 @@ mvn exec:java -Pchrome -Pfirefox
 
 ## Augment an Active Grid
 
-
+In addition to its ability to launch a Selenium Grid collection, `local-grid-parent` enables you to add nodes to an existing active Grid. This can either extend the set of supported browsers or provide additional sessions of browsers that are already supported. 
 
 ## Supported Profiles
 
