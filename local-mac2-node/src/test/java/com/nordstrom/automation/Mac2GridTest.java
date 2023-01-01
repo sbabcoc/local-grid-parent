@@ -2,6 +2,7 @@ package com.nordstrom.automation;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,6 +13,8 @@ import com.nordstrom.automation.selenium.examples.ExamplePage;
 import com.nordstrom.automation.selenium.examples.MacPage;
 import com.nordstrom.automation.selenium.junit.JUnitBase;
 import com.nordstrom.automation.selenium.plugins.Mac2Plugin;
+import com.nordstrom.common.file.OSInfo;
+import com.nordstrom.common.file.OSInfo.OSType;
 import com.nordstrom.utility.GridLauncher;
 
 @InitialPage(MacPage.class)
@@ -22,6 +25,7 @@ public class Mac2GridTest extends JUnitBase {
 
     @Before
     public void beforeTest() {
+        Assume.assumeTrue(OSInfo.getDefault().getType() == OSType.MACINTOSH);
         launchSeleniumGrid();
         ExamplePage.setHubAsTarget();
     }

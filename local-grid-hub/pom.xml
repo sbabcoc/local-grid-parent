@@ -89,12 +89,15 @@
               <key>appium.with.pm2</key>
               <value>${appiumWithPM2}</value>
             </systemProperty>
+            <systemProperty>
+              <key>selenium.grid.plugins</key>
+              <value>${chromePlugin}${edgePlugin}${espressoPlugin}${firefoxPlugin}${htmlunitPlugin}${mac2Plugin}${operaPlugin}${phantomjsPlugin}${safariPlugin}${uiautomator2Plugin}${windowsPlugin}${xcuitestPlugin}</value>
+            </systemProperty>
           </systemProperties>
           <additionalClasspathElements>
             <additionalClasspathElement>local-grid-hub-${project.version}.jar</additionalClasspathElement>
           </additionalClasspathElements>
           <mainClass>com.nordstrom.utility.Main</mainClass>
-          <commandlineArgs>${chromePlugin} ${edgePlugin} ${espressoPlugin} ${firefoxPlugin} ${htmlunitPlugin} ${mac2Plugin} ${operaPlugin} ${phantomjsPlugin} ${safariPlugin} ${uiautomator2Plugin} ${windowsPlugin} ${xcuitestPlugin}</commandlineArgs>
           <includePluginDependencies>true</includePluginDependencies>
           <cleanupDaemonThreads>false</cleanupDaemonThreads>
         </configuration>
@@ -116,7 +119,7 @@
     <profile>
       <id>chrome</id>
       <properties>
-        <chromePlugin>-plugins com.nordstrom.automation.selenium.plugins.ChromePlugin</chromePlugin>
+        <chromePlugin>com.nordstrom.automation.selenium.plugins.ChromePlugin${path.separator}</chromePlugin>
       </properties>
       <build>
         <plugins>
@@ -137,7 +140,7 @@
     <profile>
       <id>edge</id>
       <properties>
-        <edgePlugin>-plugins com.nordstrom.automation.selenium.plugins.EdgePlugin</edgePlugin>
+        <edgePlugin>com.nordstrom.automation.selenium.plugins.EdgePlugin${path.separator}</edgePlugin>
       </properties>
       <build>
         <plugins>
@@ -158,7 +161,7 @@
     <profile>
       <id>espresso</id>
       <properties>
-        <espressoPlugin>-plugins com.nordstrom.automation.selenium.plugins.EspressoPlugin</espressoPlugin>
+        <espressoPlugin>com.nordstrom.automation.selenium.plugins.EspressoPlugin${path.separator}</espressoPlugin>
         <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
@@ -180,7 +183,7 @@
     <profile>
       <id>firefox</id>
       <properties>
-        <firefoxPlugin>-plugins com.nordstrom.automation.selenium.plugins.FirefoxPlugin</firefoxPlugin>
+        <firefoxPlugin>com.nordstrom.automation.selenium.plugins.FirefoxPlugin${path.separator}</firefoxPlugin>
       </properties>
       <build>
         <plugins>
@@ -201,7 +204,7 @@
     <profile>
       <id>htmlunit</id>
       <properties>
-        <htmlunitPlugin>-plugins com.nordstrom.automation.selenium.plugins.HtmlUnitPlugin</htmlunitPlugin>
+        <htmlunitPlugin>com.nordstrom.automation.selenium.plugins.HtmlUnitPlugin${path.separator}</htmlunitPlugin>
       </properties>
       <build>
         <plugins>
@@ -222,7 +225,7 @@
     <profile>
       <id>mac2</id>
       <properties>
-        <mac2Plugin>-plugins com.nordstrom.automation.selenium.plugins.Mac2Plugin</mac2Plugin>
+        <mac2Plugin>com.nordstrom.automation.selenium.plugins.Mac2Plugin${path.separator}</mac2Plugin>
         <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
@@ -244,7 +247,7 @@
     <profile>
       <id>opera</id>
       <properties>
-        <operaPlugin>-plugins com.nordstrom.automation.selenium.plugins.OperaPlugin</operaPlugin>
+        <operaPlugin>com.nordstrom.automation.selenium.plugins.OperaPlugin${path.separator}</operaPlugin>
       </properties>
       <build>
         <plugins>
@@ -265,7 +268,7 @@
     <profile>
       <id>phantomjs</id>
       <properties>
-        <phantomjsPlugin>-plugins com.nordstrom.automation.selenium.plugins.PhantomJsPlugin</phantomjsPlugin>
+        <phantomjsPlugin>com.nordstrom.automation.selenium.plugins.PhantomJsPlugin${path.separator}</phantomjsPlugin>
       </properties>
       <build>
         <plugins>
@@ -286,7 +289,7 @@
     <profile>
       <id>safari</id>
       <properties>
-        <safariPlugin>-plugins com.nordstrom.automation.selenium.plugins.SafariPlugin</safariPlugin>
+        <safariPlugin>com.nordstrom.automation.selenium.plugins.SafariPlugin${path.separator}</safariPlugin>
       </properties>
       <build>
         <plugins>
@@ -307,7 +310,7 @@
     <profile>
       <id>uiautomator2</id>
       <properties>
-        <uiautomator2Plugin>-plugins com.nordstrom.automation.selenium.plugins.UiAutomator2Plugin</uiautomator2Plugin>
+        <uiautomator2Plugin>com.nordstrom.automation.selenium.plugins.UiAutomator2Plugin${path.separator}</uiautomator2Plugin>
         <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
@@ -329,7 +332,7 @@
     <profile>
       <id>windows</id>
       <properties>
-        <windowsPlugin>-plugins com.nordstrom.automation.selenium.plugins.WindowsPlugin</windowsPlugin>
+        <windowsPlugin>com.nordstrom.automation.selenium.plugins.WindowsPlugin${path.separator}</windowsPlugin>
         <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
@@ -351,7 +354,7 @@
     <profile>
       <id>xcuitest</id>
       <properties>
-        <xcuitestPlugin>-plugins com.nordstrom.automation.selenium.plugins.XCUITestPlugin</xcuitestPlugin>
+        <xcuitestPlugin>com.nordstrom.automation.selenium.plugins.XCUITestPlugin${path.separator}</xcuitestPlugin>
         <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>

@@ -2,6 +2,7 @@ package com.nordstrom.automation;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Keys;
@@ -13,6 +14,8 @@ import com.nordstrom.automation.selenium.examples.ExamplePage;
 import com.nordstrom.automation.selenium.examples.WindowsPage;
 import com.nordstrom.automation.selenium.junit.JUnitBase;
 import com.nordstrom.automation.selenium.plugins.WindowsPlugin;
+import com.nordstrom.common.file.OSInfo;
+import com.nordstrom.common.file.OSInfo.OSType;
 import com.nordstrom.utility.GridLauncher;
 
 @InitialPage(WindowsPage.class)
@@ -23,6 +26,7 @@ public class WindowsGridTest extends JUnitBase {
 
     @Before
     public void beforeTest() {
+        Assume.assumeTrue(OSInfo.getDefault().getType() == OSType.WINDOWS);
         launchSeleniumGrid();
         ExamplePage.setHubAsTarget();
     }
