@@ -4,7 +4,7 @@
   <parent>
     <artifactId>local-grid-parent</artifactId>
     <groupId>com.nordstrom.ui-tools</groupId>
-    <version>1.9.0</version>
+    <version>1.9.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>local-mac2-node</artifactId>
