@@ -4,7 +4,7 @@
   <parent>
     <artifactId>local-grid-parent</artifactId>
     <groupId>com.nordstrom.ui-tools</groupId>
-    <version>1.9.3-SNAPSHOT</version>
+    <version>1.9.3</version>
   </parent>
 
   <artifactId>local-uiautomator2-node</artifactId>
