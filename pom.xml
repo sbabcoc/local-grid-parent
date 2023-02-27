@@ -33,7 +33,7 @@
     <selenium.version>3.141.59</selenium.version>
     <appium-client.version>7.6.0</appium-client.version>
     <htmlunit.version>2.70.0</htmlunit.version>
-    <phantomjsdriver.version>1.5.0</phantomjsdriver.version>
+    <phantomjsdriver.version>1.4.4</phantomjsdriver.version>
     <junit-foundation.version>17.0.3</junit-foundation.version>
     <guava.version>31.1-jre</guava.version>
     <jcommander.version>1.82</jcommander.version>
