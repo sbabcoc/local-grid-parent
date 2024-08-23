@@ -99,7 +99,7 @@ As show above, `local-grid-hub` accepts command line options via the `exec.args`
 * `-port` : specify port for local hub server (default = 4445)
 * `-plugins` : path-delimited list of fully-qualified node plugin classes
 * `-hubServlets` : comma-delimited list of fully-qualified servlet classes to install on the hub server
-* `-nodeServlet` : comma-delimited list of fully-qualified servlet classes to install on the node servers
+* `-nodeServlets` : comma-delimited list of fully-qualified servlet classes to install on the node servers
 * `-workingDir` : working directory for servers
 * `-logsFolder` : server output logs folder (default = "logs")
 * `-noRedirect` : disable server output redirection (default = `false`)
