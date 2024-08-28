@@ -65,13 +65,14 @@ public class GridLauncher {
                 ObjectArrays.concat(DEPENDENCY_CONTEXTS, config.getDependencyContexts(), String.class);
         
         for (DriverPlugin driverPlugin : driverPlugins) {
+            String capabilities = driverPlugin.getCapabilities(config);
             dependencyContexts = 
                     ObjectArrays.concat(dependencyContexts, driverPlugin.getDependencyContexts(), String.class);
             
             plugins.add(driverPlugin.getClass().getName());
             
             // propagate Java System properties
-            for (String name : driverPlugin.getPropertyNames()) {
+            for (String name : driverPlugin.getPropertyNames(capabilities)) {
                 String value = System.getProperty(name);
                 if (value != null) {
                     argsList.add("-D" + name + "=" + value);
