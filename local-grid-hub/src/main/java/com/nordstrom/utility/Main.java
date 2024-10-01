@@ -18,7 +18,7 @@ import com.nordstrom.automation.selenium.core.GridUtility;
 import com.nordstrom.automation.selenium.core.LocalSeleniumGrid;
 import com.nordstrom.automation.selenium.core.LocalSeleniumGrid.LocalGridServer;
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
-import com.nordstrom.automation.selenium.core.SeleniumGrid.GridServer;
+import com.nordstrom.automation.selenium.core.GridServer;
 
 public class Main {
     public static void main(String... args) throws ConfigurationException, IOException, InterruptedException,
@@ -51,7 +51,7 @@ public class Main {
             hubUrl = new URL(hostStr);
         }
 
-        boolean isActive = GridUtility.isHubActive(hubUrl);
+        boolean isActive = GridServer.isHubActive(hubUrl);
 
         if (opts.doShutdown()) {
             if (isActive) {
@@ -67,7 +67,7 @@ public class Main {
             
             for (String pluginName : opts.getPlugins()) {
                 Object plugin = Class.forName(pluginName).getConstructor().newInstance();
-                nodeServers.add(DriverPlugin.class.cast(plugin).create(config, hubServer));
+                nodeServers.add(DriverPlugin.class.cast(plugin).create(config, hubUrl));
             }
             
             for (GridServer nodeServer : nodeServers) {
