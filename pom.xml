@@ -29,7 +29,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
-    <selenium-foundation.version>28.2.2-s4</selenium-foundation.version>
+    <selenium-foundation.version>28.3.0-s4</selenium-foundation.version>
     <selenium.version>4.25.0</selenium.version>
     <htmlunit-remote.version>4.23.0</htmlunit-remote.version>
     <appium-client.version>9.3.0</appium-client.version>
