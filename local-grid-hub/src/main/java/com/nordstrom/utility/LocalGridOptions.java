@@ -21,11 +21,8 @@ public class LocalGridOptions {
     @Parameter(names = "-port", description = "Port for local hub server")
     private Integer port;
 
-    @Parameter(names = "-hubServlets", description = "Comma-delimited list of fully-qualified servlet classes to install on the hub server")
-    private String hubServlets;
-
-    @Parameter(names = "-nodeServlets", description = "Comma-delimited list of fully-qualified servlet classes to install on the node servers")
-    private String nodeServlets;
+    @Parameter(names = "-gridServlets", description = "Comma-delimited list of fully-qualified servlet classes to install")
+    private String gridServlets;
 
     @Parameter(names = "-shutdown", description = "Shutdown active local Grid")
     private boolean shutdown = false;
@@ -84,11 +81,8 @@ public class LocalGridOptions {
         if (port != null) {
             System.setProperty(SeleniumSettings.HUB_PORT.key(), port.toString());
         }
-        if (hubServlets != null) {
-            System.setProperty(SeleniumSettings.HUB_SERVLETS.key(), hubServlets);
-        }
-        if (nodeServlets != null) {
-            System.setProperty(SeleniumSettings.NODE_SERVLETS.key(), nodeServlets);
+        if (gridServlets != null) {
+            System.setProperty(SeleniumSettings.GRID_SERVLETS.key(), gridServlets);
         }
         if (workingDir != null) {
             workingFolder = workingDir.toString();
