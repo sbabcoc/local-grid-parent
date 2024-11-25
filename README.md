@@ -107,7 +107,7 @@ As show above, `local-grid-hub` accepts command line options via the `exec.args`
 For example, to add support for the hub status API, specify the corresponding servlets:
 
 ```bash
-mvn exec:java -Dexec.args="-hubServlets org.openqa.grid.web.servlet.HubStatusServlet"
+mvn exec:java -Dexec.args="-gridServlets org.openqa.grid.web.servlet.HubStatusServlet"
 ```
 
 Navigating to the hub status path (`/grid/admin/HubStatusServlet`) on the grid will yield a result like this:
