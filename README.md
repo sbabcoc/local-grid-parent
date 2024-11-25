@@ -21,9 +21,9 @@ The task of launching the grid servers is performed by the **Maven Exec** plugin
 ## System Requirements
 
 * As indicated above, `local-grid-parent` relies on **Apache Maven** to manage dependencies and execute the Java command line application that launches the specified grid collection. This project was developed with version _3.8.4_.
-* To run pre-built `local-grid-parent` modules, you'll need a Java 8+ runtime environment.
+* To run pre-built `local-grid-parent` modules, you'll need a Java 17+ runtime environment.
 * For each of the desktop browsers for which you'll be serving sessions, you'll need to install the corresponding driver executable. If the directory in which these executables are stored is on the PATH, the corresponding System properties will be set automatically.
-* If you want to explore the code and build it locally, you'll need a `git` client to clone the repository and a Java 8+ development kit to build the project.
+* If you want to explore the code and build it locally, you'll need a `git` client to clone the repository and a Java 17+ development kit to build the project.
 
 ## Requirements for Appium
 
