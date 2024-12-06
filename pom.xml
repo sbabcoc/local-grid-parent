@@ -29,11 +29,11 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
-    <selenium-foundation.version>28.4.0-s4</selenium-foundation.version>
-    <selenium.version>4.26.0</selenium.version>
-    <htmlunit-remote.version>4.26.0</htmlunit-remote.version>
+    <selenium-foundation.version>28.5.0-s4</selenium-foundation.version>
+    <selenium.version>4.27.0</selenium.version>
+    <htmlunit-remote.version>4.27.0</htmlunit-remote.version>
     <appium-client.version>9.3.0</appium-client.version>
-    <htmlunit.version>4.6.0</htmlunit.version>
+    <htmlunit.version>4.7.0</htmlunit.version>
     <phantomjsdriver.version>1.5.0</phantomjsdriver.version>
     <junit-foundation.version>17.1.1</junit-foundation.version>
     <java-utils.version>3.3.1</java-utils.version>
