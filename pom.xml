@@ -29,22 +29,22 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
-    <selenium-foundation.version>28.5.0-s4</selenium-foundation.version>
-    <selenium.version>4.27.0</selenium.version>
-    <htmlunit-remote.version>4.27.0</htmlunit-remote.version>
-    <appium-client.version>9.3.0</appium-client.version>
-    <htmlunit.version>4.7.0</htmlunit.version>
+    <selenium-foundation.version>28.5.1-s4</selenium-foundation.version>
+    <selenium.version>4.30.0</selenium.version>
+    <htmlunit-remote.version>4.30.0</htmlunit-remote.version>
+    <appium-client.version>9.4.0</appium-client.version>
+    <htmlunit.version>4.11.1</htmlunit.version>
     <phantomjsdriver.version>1.5.0</phantomjsdriver.version>
     <junit-foundation.version>17.1.1</junit-foundation.version>
-    <java-utils.version>3.3.1</java-utils.version>
-    <guava.version>33.3.1-jre</guava.version>
+    <java-utils.version>3.4.1</java-utils.version>
+    <guava.version>33.4.6-jre</guava.version>
     <jcommander.version>1.82</jcommander.version>
     <commons-lang3.version>3.17.0</commons-lang3.version>
-    <commons-text.version>1.12.0</commons-text.version>
-    <hamcrest.version>2.2</hamcrest.version>
+    <commons-text.version>1.13.0</commons-text.version>
+    <hamcrest.version>3.0</hamcrest.version>
     <okhttp.version>4.12.0</okhttp.version>
-    <okio.version>3.9.1</okio.version>
-    <kotlin.version>2.0.20</kotlin.version>
+    <okio.version>3.10.2</okio.version>
+    <kotlin.version>2.1.20</kotlin.version>
     <junit.version>4.13.2</junit.version>
     <clean-plugin.version>3.4.0</clean-plugin.version>
     <resources-plugin.version>3.2.0</resources-plugin.version>
