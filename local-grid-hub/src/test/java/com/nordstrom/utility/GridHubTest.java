@@ -43,7 +43,7 @@ public class GridHubTest {
     
     @AfterClass
     public static void afterClass() throws InterruptedException {
-        seleniumGrid.shutdown(true);
+        seleniumGrid.shutdown();
     }
     
 }
