@@ -14,10 +14,10 @@ import com.beust.jcommander.ParameterException;
 import com.nordstrom.automation.selenium.SeleniumConfig;
 import com.nordstrom.automation.selenium.AbstractSeleniumConfig.SeleniumSettings;
 import com.nordstrom.automation.selenium.DriverPlugin;
-import com.nordstrom.automation.selenium.core.GridUtility;
 import com.nordstrom.automation.selenium.core.LocalSeleniumGrid;
 import com.nordstrom.automation.selenium.core.LocalSeleniumGrid.LocalGridServer;
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
+import com.nordstrom.automation.selenium.utility.HostUtils;
 import com.nordstrom.automation.selenium.core.GridServer;
 
 public class Main {
@@ -47,7 +47,7 @@ public class Main {
         URL hubUrl = config.getHubUrl();
         if (hubUrl == null) {
             int hubPort = config.getInt(SeleniumSettings.HUB_PORT.key());
-            String hostStr = "http://" + GridUtility.getLocalHost() + ":" + hubPort + "/wd/hub";
+            String hostStr = "http://" + HostUtils.getLocalHost() + ":" + hubPort + "/wd/hub";
             hubUrl = new URL(hostStr);
         }
 
@@ -56,7 +56,7 @@ public class Main {
         if (opts.doShutdown()) {
             if (isActive) {
                 parser.getConsole().println("Shutting down active grid at: " + hubUrl.toString());
-                SeleniumGrid.create(config, hubUrl).shutdown(true);
+                SeleniumGrid.create(config, hubUrl).shutdown();
             }
             return;
         } else if (isActive) {
