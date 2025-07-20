@@ -55,8 +55,8 @@
     <source-plugin.version>3.2.1</source-plugin.version>
     <javadoc-plugin.version>3.3.0</javadoc-plugin.version>
     <gpg-plugin.version>3.0.1</gpg-plugin.version>
-    <staging-plugin.version>1.6.8</staging-plugin.version>
-    <release-plugin.version>3.0.0-M4</release-plugin.version>
+    <staging-plugin.version>1.7.0</staging-plugin.version>
+    <release-plugin.version>3.1.1</release-plugin.version>
     <skipSigning>true</skipSigning>
     <skipTests>true</skipTests>
   </properties>
