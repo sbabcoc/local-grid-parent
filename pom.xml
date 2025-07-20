@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.nordstrom.ui-tools</groupId>
   <artifactId>local-grid-parent</artifactId>
-  <version>3.1.2-SNAPSHOT</version>
+  <version>3.1.2</version>
   <packaging>pom</packaging>
 
   <name>Local Grid Parent</name>
@@ -65,7 +65,7 @@
     <connection>scm:git:https://github.com/sbabcoc/local-grid-parent.git</connection>
     <developerConnection>scm:git:https://github.com/sbabcoc/local-grid-parent.git</developerConnection>
     <url>https://github.com/sbabcoc/local-grid-parent/tree/master</url>
-    <tag>local-grid-parent-2.2.0</tag>
+    <tag>local-grid-parent-3.1.2</tag>
   </scm>
 
   <distributionManagement>
