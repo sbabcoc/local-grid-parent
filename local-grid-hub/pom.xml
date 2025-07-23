@@ -7,11 +7,10 @@
     <version>3.1.6-SNAPSHOT</version>
   </parent>
 
-  <name>Local Grid Hub</name>
   <artifactId>local-grid-hub</artifactId>
   <packaging>jar</packaging>
   
-  <description />
+  <name>Local Grid Hub</name>
   
   <properties>
     <chromePlugin />
