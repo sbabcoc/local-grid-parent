@@ -7,11 +7,10 @@
     <version>3.1.6-SNAPSHOT</version>
   </parent>
 
-  <name>Local HtmlUnit Node</name>
   <artifactId>local-htmlunit-node</artifactId>
   <packaging>jar</packaging>
   
-  <description />
+  <name>Local HtmlUnit Node</name>
   
   <dependencies>
     <dependency>
