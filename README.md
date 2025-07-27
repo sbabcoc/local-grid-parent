@@ -1,4 +1,3 @@
-
 [![Maven Central](https://img.shields.io/maven-central/v/com.nordstrom.ui-tools/local-grid-hub.svg)](https://central.sonatype.com/search?q=com.nordstrom.ui-tools+local-grid-hub&core=gav)
 
 # local-grid-parent
@@ -22,8 +21,8 @@ The task of launching the grid servers is performed by the **Maven Exec** plugin
 
 * As indicated above, `local-grid-parent` relies on **Apache Maven** to manage dependencies and execute the Java command line application that launches the specified grid collection. This project was developed with version _3.8.4_.
 * To run pre-built `local-grid-parent` modules, you'll need a Java 17+ runtime environment.
-* For each of the desktop browsers for which you'll be serving sessions, you'll need to install the corresponding driver executable. If the directory in which these executables are stored is on the PATH, the corresponding System properties will be set automatically.
 * If you want to explore the code and build it locally, you'll need a `git` client to clone the repository and a Java 17+ development kit to build the project.
+* Since the release of **local-grid-parent** [2.0.0](https://github.com/sbabcoc/local-grid-parent/releases/tag/local-grid-parent-2.0.0), we now use **Selenium Manager** to acquire compatible drivers for the browsers targeted by your tests. If the manager is unable to locate or download a required driver, **DriverExecutableNotFoundException** is thrown.<br><br>This feature does not include management of Appium [automation engines](https://github.com/sbabcoc/Selenium-Foundation/docs/ConfiguringProjectSettings.md#appium-automation-engine-support), which must be installed separately.
 
 ## Requirements for Appium
 
