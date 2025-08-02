@@ -31,9 +31,9 @@
     <maven.compiler.release>17</maven.compiler.release>
     <selenium-foundation.version>29.2.2-s4</selenium-foundation.version>
     <selenium.version>4.34.0</selenium.version>
-    <htmlunit-remote.version>4.33.0</htmlunit-remote.version>
+    <htmlunit-remote.version>4.34.0</htmlunit-remote.version>
     <appium-client.version>9.4.0</appium-client.version>
-    <htmlunit.version>4.13.0</htmlunit.version>
+    <htmlunit.version>4.14.0</htmlunit.version>
     <phantomjsdriver.version>1.5.0</phantomjsdriver.version>
     <junit-foundation.version>17.2.4</junit-foundation.version>
     <java-utils.version>3.4.1</java-utils.version>
