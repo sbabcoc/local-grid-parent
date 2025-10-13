@@ -48,7 +48,7 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
     public void testParagraphs() {
         ExamplePage page = getInitialPage();
         List<String> paraList = page.getParagraphs();
-        assertEquals(3, paraList.size());
+        assertEquals(4, paraList.size());
         assertArrayEquals(PARAS, paraList.toArray());
     }
     
