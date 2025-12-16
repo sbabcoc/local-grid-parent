@@ -35,7 +35,7 @@ public class WindowsGridTest extends JUnitBase {
     public void testEditing() {
         WindowsPage page = getInitialPage();
         page.modifyDocument("Hello world!");
-        assertEquals("Hello world!", page.getDocument());
+        assertEquals(page.getDocumentContent(), "Hello world!");
         page.modifyDocument(Keys.CONTROL + "z");
     }
 

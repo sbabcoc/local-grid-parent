@@ -33,8 +33,8 @@ public class XCUITestGridTest extends JUnitBase {
     @Test
     public void testEditing() {
         IOSPage page = getInitialPage();
-        page.modifyField("Hello world!");
-        assertEquals("Hello world!", page.accessField());
+        assertEquals(page.computeSum(1, 2), 3);
+        assertEquals(page.getAnswerAsString(), "3");
     }
 
     private void launchSeleniumGrid() {

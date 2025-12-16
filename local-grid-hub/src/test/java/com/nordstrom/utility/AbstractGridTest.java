@@ -11,7 +11,6 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
 import com.nordstrom.automation.selenium.DriverPlugin;
@@ -254,12 +253,8 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
     
     @Override
     public WebDriver provideDriver(Method method) {
-        DriverPlugin plugin = getPlugin();
-        String personality = plugin.getPersonalities().get(plugin.getBrowserName());
-        
         SeleniumConfig config = SeleniumConfig.getConfig();
-        Capabilities[] capabilities = config.getCapabilitiesForJson(personality);
-        return GridUtility.getDriver(config.getHubUrl(), capabilities[0]);
+        return GridUtility.getDriver(config.getHubUrl(), config.getCurrentCapabilities());
     }
 
     private void launchSeleniumGrid() {
