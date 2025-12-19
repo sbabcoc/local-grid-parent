@@ -13,6 +13,9 @@ import com.beust.jcommander.converters.PathConverter;
 import com.nordstrom.automation.selenium.AbstractSeleniumConfig.SeleniumSettings;
 import com.nordstrom.automation.selenium.exceptions.GridServerLaunchFailedException;
 
+/**
+ * This class defines the options supported by the {@code local-grid-hub} command line interface.
+ */
 public class LocalGridOptions {
 
     @Parameter(names = "-plugins", description = "Path-delimited list of fully-qualified node plugin classes")
@@ -39,38 +42,79 @@ public class LocalGridOptions {
     @Parameter(names = { "-help", "-?" }, description = "Display supported options and exit", help = true)
     private boolean help = false;
 
+    /**
+     * Get the specified Grid hub port.
+     * 
+     * @return Grid hub port; {@code null} if no port was specified
+     */
     public Integer getPort() {
         return port;
     }
 
+    /**
+     * Get the list of specified browser plug-ins.
+     * 
+     * @return list of fully-qualified browser plug-in class names; empty list if no plug-ins were specified 
+     */
     public List<String> getPlugins() {
         return plugins;
     }
 
+    /**
+     * Determine whether shutdown of specified local Grid instances was requested.
+     * 
+     * @return {@code true} if shutdown was requested; otherwise {@code false}
+     */
     public boolean doShutdown() {
         return shutdown;
     }
 
+    /**
+     * Get the specified Grid collection working directory.
+     * 
+     * @return Grid collection working directory (default: current directory)
+     */
     public Path getWorkingDir() {
         return workingDir;
     }
 
+    /**
+     * Get the specified Grid collection logs folder.
+     * 
+     * @return Gris collection logs folder; {@code null} if no logs folder was specified
+     */
     public Path getLogsFolder() {
         return logsFolder;
     }
 
+    /**
+     * Determine if console output redirection has been disabled.
+     * 
+     * @return {@code true} if output redirection is disabled; otherwise {@code false}
+     */
     public boolean noRedirect() {
         return (noRedirect != null) ? noRedirect : false;
     }
 
+    /**
+     * Specifies output of {@code local-grid-hub} options information.
+     */
     public void setHelp() {
         help = true;
     }
 
+    /**
+     * Determine if output of {@code local-grid-hub} options information is specified.
+     * 
+     * @return {@code true} is information output is specified; otherwise {@code false}
+     */
     public boolean isHelp() {
         return help;
     }
 
+    /**
+     * Inject <b>Selenium Foundation</b> settings that apply to local Grid configuration.
+     */
     public void injectSettings() {
         String workingFolder = System.getProperty("user.dir");
         

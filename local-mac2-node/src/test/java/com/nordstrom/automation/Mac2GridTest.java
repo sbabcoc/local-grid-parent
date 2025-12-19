@@ -10,14 +10,16 @@ import com.nordstrom.automation.selenium.DriverPlugin;
 import com.nordstrom.automation.selenium.annotations.InitialPage;
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
 import com.nordstrom.automation.selenium.examples.ExamplePage;
-import com.nordstrom.automation.selenium.examples.MacPage;
+import com.nordstrom.automation.selenium.examples.TextEditApplication;
+import com.nordstrom.automation.selenium.examples.TextEditDocumentWindow;
+import com.nordstrom.automation.selenium.examples.TextEditManagementPanel;
 import com.nordstrom.automation.selenium.junit.JUnitBase;
 import com.nordstrom.automation.selenium.plugins.Mac2Plugin;
 import com.nordstrom.common.file.OSInfo;
 import com.nordstrom.common.file.OSInfo.OSType;
 import com.nordstrom.utility.GridLauncher;
 
-@InitialPage(MacPage.class)
+@InitialPage(TextEditApplication.class)
 public class Mac2GridTest extends JUnitBase {
 
     private static SeleniumGrid seleniumGrid = null;
@@ -32,9 +34,12 @@ public class Mac2GridTest extends JUnitBase {
 
     @Test
     public void testEditing() {
-        MacPage page = getInitialPage();
-        page.modifyDocument("Hello world!");
-        assertEquals("Hello world!", page.accessDocument());
+        TextEditApplication application = getInitialPage();
+        TextEditManagementPanel managementPanel = application.openManagementPanel();
+        TextEditDocumentWindow documentWindow = managementPanel.openNewDocument();
+        documentWindow.modifyDocument("Hello world!");
+        assertEquals(documentWindow.getDocumentContent(), "Hello world!");
+        documentWindow.closeDocumentWithoutSaving();
     }
 
     private void launchSeleniumGrid() {

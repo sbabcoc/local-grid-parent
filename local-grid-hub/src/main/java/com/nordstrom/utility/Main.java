@@ -20,10 +20,34 @@ import com.nordstrom.automation.selenium.core.SeleniumGrid;
 import com.nordstrom.automation.selenium.utility.HostUtils;
 import com.nordstrom.automation.selenium.core.GridServer;
 
+/**
+ * This class implements the command line interface for {@code local-grid-hub}.
+ */
 public class Main {
+    /**
+     * This is the main entry point for the {@code local-grid-hub} command line interface. From here, you're
+     * able to launch, augment, and shut down local Selenium Grid collections.
+     * 
+     * @param args command line arguments
+     * @throws ConfigurationException A failure was encountered while initializing the configuration object.
+     * @throws IOException Thrown to indicate one of the following: <ul>
+     *     <li>A failure was encountered while reading from a configuration input stream;</li> 
+     *     <li>A malformed host URL was synthesized;</li>
+     *     <li>An error occurred during Selenium Grid creation;</li>
+     *     <li>An error occurred during driver plug-in creation;</li>
+     *     <li>An error occurred during Grid server startup;</li>
+     * </ul>
+     * @throws InterruptedException Interrupted during Grid creation, startup, or activation.
+     * @throws TimeoutException Timed out during Grid creation, startup, or activation.
+     * @throws InstantiationException Browser plug-in instantiation failed.
+     * @throws IllegalAccessException Access to browser plug-in constructor was denied.
+     * @throws InvocationTargetException An exception was thrown during browser plug-in instantiation.
+     * @throws NoSuchMethodException Browser plug-in no-argument constructor was not found.
+     * @throws ClassNotFoundException Specified browser plug-in class was not found.
+     */
     public static void main(String... args) throws ConfigurationException, IOException, InterruptedException,
-            TimeoutException, InstantiationException, IllegalAccessException, IllegalArgumentException,
-            InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException {
+            TimeoutException, InstantiationException, IllegalAccessException, InvocationTargetException,
+            NoSuchMethodException, ClassNotFoundException {
         
         LocalGridOptions opts = new LocalGridOptions();
         JCommander parser = new JCommander(opts);

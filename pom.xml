@@ -29,18 +29,18 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
-    <selenium-foundation.version>29.5.0-s4</selenium-foundation.version>
-    <selenium.version>4.36.0</selenium.version>
-    <htmlunit-remote.version>4.36.1</htmlunit-remote.version>
+    <selenium-foundation.version>30.0.2-s4</selenium-foundation.version>
+    <selenium.version>4.39.0</selenium.version>
+    <htmlunit-remote.version>4.39.0</htmlunit-remote.version>
     <appium-client.version>10.0.0</appium-client.version>
-    <htmlunit.version>4.17.0</htmlunit.version>
+    <htmlunit.version>4.20.0</htmlunit.version>
     <phantomjsdriver.version>1.5.0</phantomjsdriver.version>
     <junit-foundation.version>17.2.4</junit-foundation.version>
     <java-utils.version>3.4.1</java-utils.version>
-    <guava.version>33.4.8-jre</guava.version>
+    <guava.version>33.5.0-jre</guava.version>
     <jcommander.version>1.82</jcommander.version>
-    <commons-lang3.version>3.17.0</commons-lang3.version>
-    <commons-text.version>1.13.1</commons-text.version>
+    <commons-lang3.version>3.20.0</commons-lang3.version>
+    <commons-text.version>1.15.0</commons-text.version>
     <hamcrest.version>3.0</hamcrest.version>
     <okhttp.version>4.12.0</okhttp.version>
     <okio.version>3.10.2</okio.version>
