@@ -11,14 +11,14 @@ import com.nordstrom.automation.selenium.DriverPlugin;
 import com.nordstrom.automation.selenium.annotations.InitialPage;
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
 import com.nordstrom.automation.selenium.examples.ExamplePage;
-import com.nordstrom.automation.selenium.examples.WindowsPage;
+import com.nordstrom.automation.selenium.examples.NotepadApplication;
 import com.nordstrom.automation.selenium.junit.JUnitBase;
 import com.nordstrom.automation.selenium.plugins.WindowsPlugin;
 import com.nordstrom.common.file.OSInfo;
 import com.nordstrom.common.file.OSInfo.OSType;
 import com.nordstrom.utility.GridLauncher;
 
-@InitialPage(WindowsPage.class)
+@InitialPage(NotepadApplication.class)
 public class WindowsGridTest extends JUnitBase {
     
     private static SeleniumGrid seleniumGrid = null;
@@ -33,7 +33,7 @@ public class WindowsGridTest extends JUnitBase {
 
     @Test
     public void testEditing() {
-        WindowsPage page = getInitialPage();
+        NotepadApplication page = getInitialPage();
         page.modifyDocument("Hello world!");
         assertEquals(page.getDocumentContent(), "Hello world!");
         page.modifyDocument(Keys.CONTROL + "z");

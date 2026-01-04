@@ -2,6 +2,8 @@ package com.nordstrom.automation;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.UUID;
+
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,14 +12,15 @@ import com.nordstrom.automation.selenium.DriverPlugin;
 import com.nordstrom.automation.selenium.annotations.InitialPage;
 import com.nordstrom.automation.selenium.core.SeleniumGrid;
 import com.nordstrom.automation.selenium.examples.ExamplePage;
-import com.nordstrom.automation.selenium.examples.IOSPage;
+import com.nordstrom.automation.selenium.examples.IOSApplicationEchoScreenView;
+import com.nordstrom.automation.selenium.examples.IOSApplicationMainView;
 import com.nordstrom.automation.selenium.junit.JUnitBase;
 import com.nordstrom.automation.selenium.plugins.XCUITestPlugin;
 import com.nordstrom.common.file.OSInfo;
 import com.nordstrom.common.file.OSInfo.OSType;
 import com.nordstrom.utility.GridLauncher;
 
-@InitialPage(IOSPage.class)
+@InitialPage(IOSApplicationMainView.class)
 public class XCUITestGridTest extends JUnitBase {
 
     private static SeleniumGrid seleniumGrid = null;
@@ -32,9 +35,11 @@ public class XCUITestGridTest extends JUnitBase {
 
     @Test
     public void testEditing() {
-        IOSPage page = getInitialPage();
-        assertEquals(page.computeSum(1, 2), 3);
-        assertEquals(page.getAnswerAsString(), "3");
+        IOSApplicationMainView mainView = getInitialPage();
+        IOSApplicationEchoScreenView echoScreen = mainView.openEchoScreen();
+        UUID uuid = UUID.randomUUID();
+        echoScreen.setSavedMessage(uuid.toString());
+        assertEquals(echoScreen.getSavedMessage(), uuid.toString());
     }
 
     private void launchSeleniumGrid() {
