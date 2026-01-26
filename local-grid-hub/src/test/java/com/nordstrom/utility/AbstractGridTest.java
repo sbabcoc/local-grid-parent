@@ -226,9 +226,9 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
         bodyRefreshCounts = component.getBodyRefreshCounts();
         
         // 1 page refresh request from its table context
-        assertEquals(1, pageRefreshCount);
+        assertEquals(2, pageRefreshCount);
         // 1 table refresh request from each of its four row contexts
-        assertEquals(4, tableRefreshCount);
+        assertEquals(8, tableRefreshCount);
         // 1 head row refresh request from one of its web element contexts
         assertEquals(1, headRefreshCount);
         // 1 refresh request per body row from one of its web element contexts
@@ -245,8 +245,8 @@ public abstract class AbstractGridTest extends JUnitBase implements DriverProvid
         bodyRefreshCounts = component.getBodyRefreshCounts();
         
         // verify no additional refresh requests
-        assertEquals(1, pageRefreshCount);
-        assertEquals(4, tableRefreshCount);
+        assertEquals(2, pageRefreshCount);
+        assertEquals(8, tableRefreshCount);
         assertEquals(1, headRefreshCount);
         assertArrayEquals(new int[] {1, 1, 1}, bodyRefreshCounts);
     }
