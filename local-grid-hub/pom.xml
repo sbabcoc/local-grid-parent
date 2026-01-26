@@ -180,7 +180,6 @@
       <id>espresso</id>
       <properties>
         <espressoPlugin>com.nordstrom.automation.selenium.plugins.EspressoPlugin${path.separator}</espressoPlugin>
-        <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
         <plugins>
@@ -329,7 +328,6 @@
       <id>uiautomator2</id>
       <properties>
         <uiautomator2Plugin>com.nordstrom.automation.selenium.plugins.UiAutomator2Plugin${path.separator}</uiautomator2Plugin>
-        <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
         <plugins>
@@ -373,7 +371,6 @@
       <id>xcuitest</id>
       <properties>
         <xcuitestPlugin>com.nordstrom.automation.selenium.plugins.XCUITestPlugin${path.separator}</xcuitestPlugin>
-        <appiumWithPM2>true</appiumWithPM2>
       </properties>
       <build>
         <plugins>

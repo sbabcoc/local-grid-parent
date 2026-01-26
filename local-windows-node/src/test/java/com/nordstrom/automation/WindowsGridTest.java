@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Assume;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.Keys;
 
@@ -24,9 +25,13 @@ public class WindowsGridTest extends JUnitBase {
     private static SeleniumGrid seleniumGrid = null;
     private final DriverPlugin plugin = new WindowsPlugin();
 
+    @BeforeClass
+    public static void beforeClass() {
+        Assume.assumeTrue(OSInfo.getDefault().getType() == OSType.WINDOWS);
+    }
+
     @Before
     public void beforeTest() {
-        Assume.assumeTrue(OSInfo.getDefault().getType() == OSType.WINDOWS);
         launchSeleniumGrid();
         ExamplePage.setHubAsTarget();
     }
