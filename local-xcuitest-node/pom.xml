@@ -4,7 +4,7 @@
   <parent>
     <artifactId>local-grid-parent</artifactId>
     <groupId>com.nordstrom.ui-tools</groupId>
-    <version>3.7.0</version>
+    <version>3.7.1-SNAPSHOT</version>
   </parent>
 
   <artifactId>local-xcuitest-node</artifactId>
