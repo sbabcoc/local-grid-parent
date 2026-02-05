@@ -19,8 +19,6 @@
     <firefoxPlugin />
     <htmlunitPlugin />
     <mac2Plugin />
-    <operaPlugin />
-    <phantomjsPlugin />
     <safariPlugin />
     <uiautomator2Plugin />
     <windowsPlugin />
@@ -109,7 +107,7 @@
             </systemProperty>
             <systemProperty>
               <key>selenium.grid.plugins</key>
-              <value>${chromePlugin}${edgePlugin}${espressoPlugin}${firefoxPlugin}${htmlunitPlugin}${mac2Plugin}${operaPlugin}${phantomjsPlugin}${safariPlugin}${uiautomator2Plugin}${windowsPlugin}${xcuitestPlugin}</value>
+              <value>${chromePlugin}${edgePlugin}${espressoPlugin}${firefoxPlugin}${htmlunitPlugin}${mac2Plugin}${safariPlugin}${uiautomator2Plugin}${windowsPlugin}${xcuitestPlugin}</value>
             </systemProperty>
           </systemProperties>
           <additionalClasspathElements>
@@ -254,48 +252,6 @@
               <dependency>
                 <groupId>com.nordstrom.ui-tools</groupId>
                 <artifactId>local-mac2-node</artifactId>
-                <version>${project.version}</version>
-              </dependency>
-            </dependencies>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>opera</id>
-      <properties>
-        <operaPlugin>com.nordstrom.automation.selenium.plugins.OperaPlugin${path.separator}</operaPlugin>
-      </properties>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <dependencies>
-              <dependency>
-                <groupId>com.nordstrom.ui-tools</groupId>
-                <artifactId>local-opera-node</artifactId>
-                <version>${project.version}</version>
-              </dependency>
-            </dependencies>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-    <profile>
-      <id>phantomjs</id>
-      <properties>
-        <phantomjsPlugin>com.nordstrom.automation.selenium.plugins.PhantomJsPlugin${path.separator}</phantomjsPlugin>
-      </properties>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <dependencies>
-              <dependency>
-                <groupId>com.nordstrom.ui-tools</groupId>
-                <artifactId>local-phantomjs-node</artifactId>
                 <version>${project.version}</version>
               </dependency>
             </dependencies>
