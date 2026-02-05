@@ -61,7 +61,7 @@ In addition to its ability to launch a Selenium Grid collection, `local-grid-par
 
 ```bash
 mvn exec:java -Pchrome # launch a grid providing Chrome sessions
-mvn exec:java -Popera # attach a node providing Opera sessions
+mvn exec:java -Pfirefox # attach a node providing Firefox sessions
 mvn exec:java -Pchrome # attach a second node providing Chrome
 ```
 
@@ -75,8 +75,6 @@ mvn exec:java -Pchrome # attach a second node providing Chrome
 | `firefox` | com.nordstrom.automation.selenium.plugins.FirefoxPlugin |
 | `htmlunit` | com.nordstrom.automation.selenium.plugins.HtmlUnitPlugin |
 | `mac2` | com.nordstrom.automation.selenium.plugins.Mac2Plugin |
-| `opera` | com.nordstrom.automation.selenium.plugins.OperaPlugin |
-| `phantomjs` | com.nordstrom.automation.selenium.plugins.PhantomJsPlugin |
 | `safari` | com.nordstrom.automation.selenium.plugins.SafariPlugin |
 | `uiautomator2` | com.nordstrom.automation.selenium.plugins.UiAutomator2Plugin |
 | `windows` | com.nordstrom.automation.selenium.plugins.WindowsPlugin |

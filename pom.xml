@@ -29,12 +29,11 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
-    <selenium-foundation.version>32.1.4-s4</selenium-foundation.version>
+    <selenium-foundation.version>32.3.0-s4</selenium-foundation.version>
     <selenium.version>4.40.0</selenium.version>
     <htmlunit-remote.version>4.40.1</htmlunit-remote.version>
     <appium-client.version>10.0.0</appium-client.version>
     <htmlunit.version>4.21.0</htmlunit.version>
-    <phantomjsdriver.version>1.5.0</phantomjsdriver.version>
     <junit-foundation.version>17.2.4</junit-foundation.version>
     <java-utils.version>3.4.1</java-utils.version>
     <guava.version>33.5.0-jre</guava.version>
@@ -162,16 +161,6 @@
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-firefox-driver</artifactId>
         <version>${selenium.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.seleniumhq.selenium</groupId>
-        <artifactId>selenium-opera-driver</artifactId>
-        <version>4.4.0</version>
-      </dependency>
-      <dependency>
-        <groupId>com.codeborne</groupId>
-        <artifactId>phantomjsdriver</artifactId>
-        <version>${phantomjsdriver.version}</version>
       </dependency>
       <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
@@ -386,8 +375,6 @@
     <module>local-firefox-node</module>
     <module>local-htmlunit-node</module>
     <module>local-mac2-node</module>
-    <module>local-opera-node</module>
-    <module>local-phantomjs-node</module>
     <module>local-safari-node</module>
     <module>local-uiautomator2-node</module>
     <module>local-windows-node</module>
