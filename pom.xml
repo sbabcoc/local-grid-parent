@@ -29,13 +29,13 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>17</maven.compiler.release>
-    <selenium-foundation.version>32.3.0-s4</selenium-foundation.version>
-    <selenium.version>4.40.0</selenium.version>
-    <htmlunit-remote.version>4.40.1</htmlunit-remote.version>
+    <selenium-foundation.version>33.1.1-s4</selenium-foundation.version>
+    <selenium.version>4.41.0</selenium.version>
+    <htmlunit-remote.version>4.41.0</htmlunit-remote.version>
     <appium-client.version>10.0.0</appium-client.version>
     <htmlunit.version>4.21.0</htmlunit.version>
-    <junit-foundation.version>17.2.4</junit-foundation.version>
-    <java-utils.version>3.4.1</java-utils.version>
+    <junit-foundation.version>18.0.0</junit-foundation.version>
+    <java-utils.version>4.0.0</java-utils.version>
     <guava.version>33.5.0-jre</guava.version>
     <jcommander.version>1.82</jcommander.version>
     <commons-lang3.version>3.20.0</commons-lang3.version>
@@ -45,17 +45,17 @@
     <okio.version>3.10.2</okio.version>
     <kotlin.version>2.1.20</kotlin.version>
     <junit.version>4.13.2</junit.version>
-    <clean-plugin.version>3.4.0</clean-plugin.version>
-    <resources-plugin.version>3.2.0</resources-plugin.version>
-    <compiler-plugin.version>3.8.1</compiler-plugin.version>
-    <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
-    <exec-plugin.version>3.0.0</exec-plugin.version>
-    <jar-plugin.version>3.2.0</jar-plugin.version>
-    <source-plugin.version>3.2.1</source-plugin.version>
-    <javadoc-plugin.version>3.3.0</javadoc-plugin.version>
-    <gpg-plugin.version>3.0.1</gpg-plugin.version>
+    <clean-plugin.version>3.5.0</clean-plugin.version>
+    <resources-plugin.version>3.4.0</resources-plugin.version>
+    <compiler-plugin.version>3.14.0</compiler-plugin.version>
+    <surefire-plugin.version>3.5.4</surefire-plugin.version>
+    <exec-plugin.version>3.6.3</exec-plugin.version>
+    <jar-plugin.version>3.5.0</jar-plugin.version>
+    <source-plugin.version>3.3.1</source-plugin.version>
+    <javadoc-plugin.version>3.12.0</javadoc-plugin.version>
+    <gpg-plugin.version>3.2.8</gpg-plugin.version>
     <staging-plugin.version>1.7.0</staging-plugin.version>
-    <release-plugin.version>3.1.1</release-plugin.version>
+    <release-plugin.version>3.3.1</release-plugin.version>
     <skipSigning>true</skipSigning>
     <skipTests>true</skipTests>
   </properties>
