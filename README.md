@@ -172,9 +172,9 @@ If you wish to run the unit tests from within Eclipse, you'll need to create a *
 
 | VM arguments: |
 |:---|
-| -javaagent:${env_var:M2_REPO}/repository/com/nordstrom/tools/junit-foundation/17.2.4/junit-foundation-17.2.4.jar |
+| -javaagent:${env_var:M2_REPO}/repository/com/nordstrom/tools/junit-foundation/18.0.0/junit-foundation-18.0.0.jar |
 
-The value assigned to the `javaagent` argument above assumes that you've defined an **M2_REPO** environment variable that specifies the path to your Maven `.m2` folder and that you have **JUnit Foundation** version `17.2.4` installed. This should be the case if you've built and installed the `local-grid-parent` project. The Java agent of **JUnit Foundation** creates an augmented version of JUnit 4 that provides the test lifecycle notifications that enable **Selenium Foundation** to manage the local Grid instance and driver sessions used by the tests themselves.
+The value assigned to the `javaagent` argument above assumes that you've defined an **M2_REPO** environment variable that specifies the path to your Maven `.m2` folder and that you have **JUnit Foundation** version `18.0.0` installed. This should be the case if you've built and installed the `local-grid-parent` project. The Java agent of **JUnit Foundation** creates an augmented version of JUnit 4 that provides the test lifecycle notifications that enable **Selenium Foundation** to manage the local Grid instance and driver sessions used by the tests themselves.
  
 Note that the `local-grid-parent` Maven project defines the `javaagent` command line argument in the configuration for the **Surefire** plugin, which is why you don't need to specify this in any form when running from the command line.
 
