@@ -1,3 +1,10 @@
+> [!WARNING]
+> **This project is deprecated.** `local-grid-parent` has been superseded by
+> [selenium-grid-manager](https://github.com/sbabcoc/selenium-grid-manager),
+> which provides the same functionality using Gradle instead of Maven.
+> No further updates will be made to this project.
+> Please migrate to `selenium-grid-manager` at your earliest convenience.
+
 [![Maven Central](https://img.shields.io/maven-central/v/com.nordstrom.ui-tools/local-grid-hub.svg)](https://central.sonatype.com/search?q=com.nordstrom.ui-tools+local-grid-hub&core=gav)
 
 # local-grid-parent
